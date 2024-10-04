@@ -1,4 +1,7 @@
 <?php
+/************************************/
+/****** CUSTOM POST LISTAS  *********/
+/************************************/
 // Función para registrar el tipo de entrada personalizada "Listas"
 function registrar_tipo_entrada_listas() {
     $labels = array(
@@ -30,7 +33,8 @@ function registrar_tipo_entrada_listas() {
         'has_archive'        => false,
         'hierarchical'       => true, // Para que soporte atributos de página
         'menu_position'      => 5,
-        'supports'           => array('title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes'), // Soportes habilitados
+        'menu_icon'           => 'dashicons-format-aside', // menu icon
+        'supports'           => array('title', 'editor', 'thumbnail', 'revisions', 'page-attributes'), // Soportes habilitados
     );
   
     register_post_type('listas', $args);
@@ -102,3 +106,7 @@ function ocultar_tipo_entrada_listas($query) {
     }
 }
 add_action('pre_get_posts', 'ocultar_tipo_entrada_listas');
+/************************************/
+/****** CUSTOM POST LISTAS  *********/
+/************************************/
+
