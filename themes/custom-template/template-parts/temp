@@ -1,0 +1,642 @@
+<?php
+/*
+Template Name: ISIL Template Base
+*/
+get_header();
+?>
+
+<!-- SECCIÓN BANNER ISIL -->
+<section class="isil-slider">
+    <div class="swiper isil-banner">
+        <div class="swiper-wrapper">
+            <a class="swiper-slide" href="https://isil.pe"></a>
+            <a class="swiper-slide" href="https://isil.pe"></a>
+            <a class="swiper-slide" href="https://isil.pe"></a>
+            <a class="swiper-slide" href="https://isil.pe"></a>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <style>
+    .isil-slider .swiper-slide:nth-child(1) {
+        background-image: url("http://empleabilidad.isil.pe/wp-content/uploads/2024/06/slider-full-width.jpg");
+    }
+
+    .isil-slider .swiper-slide:nth-child(2) {
+        background-image: url("http://empleabilidad.isil.pe/wp-content/uploads/2024/06/slider-full-width.jpg");
+    }
+
+    .isil-slider .swiper-slide:nth-child(3) {
+        background-image: url("http://empleabilidad.isil.pe/wp-content/uploads/2024/06/slider-full-width.jpg");
+    }
+
+    .isil-slider .swiper-slide:nth-child(4) {
+        background-image: url("http://empleabilidad.isil.pe/wp-content/uploads/2024/06/slider-full-width.jpg");
+    }
+
+    @media only screen and (max-width: 767px) {
+        .isil-slider .swiper-slide:nth-child(1) {
+            background-image: url("http://empleabilidad.isil.pe/wp-content/uploads/2024/06/demo-slider-mobile-2.jpg");
+        }
+
+        .isil-slider .swiper-slide:nth-child(2) {
+            background-image: url("http://empleabilidad.isil.pe/wp-content/uploads/2024/06/demo-slider-mobile-2.jpg");
+        }
+
+        .isil-slider .swiper-slide:nth-child(3) {
+            background-image: url("http://empleabilidad.isil.pe/wp-content/uploads/2024/06/demo-slider-mobile-2.jpg");
+        }
+
+        .isil-slider .swiper-slide:nth-child(4) {
+            background-image: url("http://empleabilidad.isil.pe/wp-content/uploads/2024/06/demo-slider-mobile-2.jpg");
+        }
+    }
+    </style>
+    <style>
+    /* SECCIÓN BANNER ISIL */
+    .isil-slider {
+        background-color: lightgray;
+        position: relative;
+    }
+
+    .isil-slider .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .isil-slider .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-position: center;
+        background-size: cover;
+
+        /* MANEJA PROPORCIONES */
+        width: 100%;
+        overflow: hidden;
+        padding-bottom: 30%;
+        /* MANEJA PROPORCIONES */
+    }
+
+    .isil-slider .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .isil-slider .swiper-button-prev {
+        background-color: black;
+        left: 0;
+        width: 36px;
+    }
+
+    .isil-slider .swiper-button-next {
+        background-color: black;
+        right: 0;
+        width: 36px;
+    }
+
+    .isil-slider .swiper-button-prev:after,
+    .isil-slider .swiper-button-next:after {
+        font-size: 24px;
+        color: white;
+    }
+
+    .isil-slider .swiper-button-disabled {
+        pointer-events: all;
+    }
+
+    .isil-slider .swiper-pagination-bullet {
+        background: white;
+        opacity: 0.5;
+    }
+
+    .isil-slider .swiper-pagination-bullet-active {
+        background: #FDBF10;
+        opacity: 1;
+    }
+
+    @media only screen and (max-width: 767px) {
+        .isil-slider .swiper-slide {
+            /* CAMBIA LA PROPORCIÓN EN VESRIONES MOBILES */
+            width: 100%;
+            padding-bottom: 300px;
+            /* CAMBIA LA PROPORCIÓN EN VESRIONES MOBILES */
+        }
+    }
+
+    /* SECCIÓN BANNER ISIL */
+    </style>
+    <script>
+    jQuery(window).on('load', function() {
+        const swiper = new Swiper('.isil-banner', {
+            centeredSlides: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    });
+    </script>
+</section>
+<!-- SECCIÓN BANNER ISIL -->
+
+
+<!-- SECCION SIMPLE -->
+<section class="bg-primary py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center text-white">
+                <h3>Conoce en este espacio cómo potenciar tus talentos
+                    y llevar tus habilidades profesionales hacia lo más alto</h3>
+                <p class="lead m-0">Citas personalizadas y una Bolsa Laboral diseñada exclusivamente para ti</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- SECCION SIMPLE -->
+
+<!-- SECCION SIMPLE 2 -->
+<section>
+    <div class="container py-5">
+        <div class="row align-items-stretch">
+            <div class="col-lg-6">
+                <div
+                    class="d-flex flex-lg-row flex-column justify-content-between align-items-center text-lg-start text-center">
+                    <img src="http://empleabilidad.isil.pe/wp-content/uploads/2024/06/rocket.png" alt="rocket"
+                        class="img-fluid me-lg-5 me-0" width="78" height="78">
+                    <h2 class="mx-lg-5 mx-0">Los sueldos que más crecen</h2>
+                </div>
+            </div>
+            <div
+                class="col-lg-6 d-flex align-items-center border border-top-0 border-bottom-0 border-black border-end-0 text-lg-start text-center">
+                <h5 class="mb-0 mx-lg-5 mx-0 fw-normal"> <strong>El 90%</strong> de nuestras carreras tienen el
+                    <strong>mayor crecimiento</strong> de ingreso salarial anual.
+                </h5>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- SECCION SIMPLE 2 -->
+
+<!-- SECCIÓN RECUADRO CON PORCENTAJES -->
+<section class="py-5">
+    <div class="container-lg">
+        <div class="row grid gap-2 justify-md-content-between justify-content-center">
+            <div class="col-lg col-auto px-sm-0">
+                <div class="bg-primary text-white text-center p-5 mx-auto">
+                    <div class="h1 mb-0">+30%</div>
+                    <p class="mb-0">Comunicación</p>
+                </div>
+            </div>
+
+            <div class="col-lg col-auto px-sm-0">
+                <div class="bg-primary text-white text-center p-5 mx-auto bg-opacity-75">
+                    <div class="h1 mb-0">+30%</div>
+                    <p class="mb-0">Comunicación</p>
+                </div>
+            </div>
+
+            <div class="col-lg col-auto px-sm-0">
+                <div class="bg-primary text-white text-center p-5 mx-auto  bg-opacity-50">
+                    <div class="h1 mb-0">+30%</div>
+                    <p class="mb-0">Comunicación</p>
+                </div>
+            </div>
+
+            <div class="col-lg col-auto px-sm-0">
+                <div class="bg-primary text-white text-center p-5 mx-auto  bg-opacity-25">
+                    <div class="h1 mb-0">+30%</div>
+                    <p class="mb-0">Comunicación</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- SECCIÓN RECUADRO CON PORCENTAJES -->
+
+<!-- SECCIÓN 2 COLUMNAS -->
+<section class="bg-light py-md-0 py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 d-flex align-items-center">
+                <div class="my-md-4 my-0">
+                    <div class="h3 text-primary">Marcamos la diferencia</div>
+                    <div>
+                        <p><strong>4 de nuestras carreras</strong> se encuentran liderando el top 3 del <strong>ranking
+                                salarial</strong> desarrollado por
+                            el Ministerio de Educación y del Ministerio del Trabajo
+                        </p>
+                        <small>*Datos correspondientes a la Planilla Electrónica del periodo 2019.</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <img src="http://empleabilidad.isil.pe/wp-content/uploads/2024/06/img-study.jpg" alt="image"
+                    class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- SECCIÓN 2 COLUMNAS -->
+
+<!-- SECCION CON TABS -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-underline justify-content-center mb-4" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                            aria-selected="true">Testimonios</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                            aria-selected="false">Eventos anteriores</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                            aria-selected="false">Asesorias</button>
+                    </li>
+
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+
+                    <!-- contenido tab1 -->
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                        aria-labelledby="pills-home-tab" tabindex="0">
+
+                        <div class="swiper isil-testimonial">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <!-- item-testimonial -->
+                                    <div class="container">
+                                        <div class="row mx-md-5 mx-0 my-5">
+                                            <div class="col-md-4 text-center">
+                                                <img src="http://empleabilidad.isil.pe/wp-content/uploads/2024/06/image-demo-1.jpg"
+                                                    alt="image-user" class="img-fluid rounded-circle img-thumbnail">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="text-md-start text-center">
+                                                    <span class="fs-1 fw-light">“Escuela ISIL me permitió actualizarme y
+                                                        a la vez, obtener mi grado Bachiller”</span>
+                                                    <p>
+                                                        Ugo Valdivia<br>
+                                                        <strong>CEO Ugo Marketing</strong>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- item-testimonial -->
+                                </div>
+                                <div class="swiper-slide">
+                                    <!-- item-testimonial -->
+                                    <div class="container">
+                                        <div class="row mx-md-5 mx-0 my-5">
+                                            <div class="col-md-4 text-center">
+                                                <img src="http://empleabilidad.isil.pe/wp-content/uploads/2024/06/image-demo-1.jpg"
+                                                    alt="image-user" class="img-fluid rounded-circle img-thumbnail">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="text-md-start text-center">
+                                                    <span class="fs-1 fw-light">“Escuela ISIL me permitió actualizarme y
+                                                        a la vez, obtener mi grado Bachiller”</span>
+                                                    <p>
+                                                        Ugo Valdivia<br>
+                                                        <strong>CEO Ugo Marketing</strong>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- item-testimonial -->
+                                </div>
+                                <div class="swiper-slide">
+                                    <!-- item-testimonial -->
+                                    <div class="container">
+                                        <div class="row mx-md-5 mx-0 my-5">
+                                            <div class="col-md-4 text-center">
+                                                <img src="http://empleabilidad.isil.pe/wp-content/uploads/2024/06/image-demo-1.jpg"
+                                                    alt="image-user" class="img-fluid rounded-circle img-thumbnail">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="text-md-start text-center">
+                                                    <span class="fs-1 fw-light">“Escuela ISIL me permitió actualizarme y
+                                                        a la vez, obtener mi grado Bachiller”</span>
+                                                    <p>
+                                                        Ugo Valdivia<br>
+                                                        <strong>CEO Ugo Marketing</strong>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- item-testimonial -->
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+
+                        <script>
+
+                        </script>
+
+                        <style>
+                        .isil-testimonial .swiper-slide {
+                            text-align: center;
+                            font-size: 18px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            min-height: 400px;
+                        }
+                        </style>
+                        <script>
+                        jQuery(window).on('load', function() {
+                            const swiper_eventos = new Swiper(".isil-testimonial", {
+                                navigation: {
+                                    nextEl: ".swiper-button-next",
+                                    prevEl: ".swiper-button-prev",
+                                },
+                                pagination: {
+                                    el: ".swiper-pagination",
+                                    clickable: true,
+                                },
+                            });
+                        });
+                        </script>
+
+                    </div>
+                    <!-- contenido tab1 -->
+
+                    <!-- contenido tab2 -->
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+                        tabindex="0">
+                        <div class="container px-5">
+                            <div class="swiper isil-eventos">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div>
+                                            <img src="http://empleabilidad.isil.pe/wp-content/uploads/2024/06/img-study.jpg"
+                                                alt="image-event" class="img-fluid mb-3">
+                                            <h4>Título del evento</h4>
+                                            <span>Fecha: 20/10/2024</span>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna aliqua
+                                            </p>
+                                            <button type="button" class="btn btn-outline-primary">Ver Video</button>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div>
+                                            <img src="http://empleabilidad.isil.pe/wp-content/uploads/2024/06/img-study.jpg"
+                                                alt="image-event" class="img-fluid mb-3">
+                                            <h4>Título del evento</h4>
+                                            <span>Fecha: 20/10/2024</span>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna aliqua
+                                            </p>
+                                            <button type="button" class="btn btn-outline-primary">Ver Video</button>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div>
+                                            <img src="http://empleabilidad.isil.pe/wp-content/uploads/2024/06/img-study.jpg"
+                                                alt="image-event" class="img-fluid mb-3">
+                                            <h4>Título del evento</h4>
+                                            <span>Fecha: 20/10/2024</span>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna aliqua
+                                            </p>
+                                            <button type="button" class="btn btn-outline-primary">Ver Video</button>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div>
+                                            <img src="http://empleabilidad.isil.pe/wp-content/uploads/2024/06/img-study.jpg"
+                                                alt="image-event" class="img-fluid mb-3">
+                                            <h4>Título del evento</h4>
+                                            <span>Fecha: 20/10/2024</span>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna aliqua
+                                            </p>
+                                            <button type="button" class="btn btn-outline-primary">Ver Video</button>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div>
+                                            <img src="http://empleabilidad.isil.pe/wp-content/uploads/2024/06/img-study.jpg"
+                                                alt="image-event" class="img-fluid mb-3">
+                                            <h4>Título del evento</h4>
+                                            <span>Fecha: 20/10/2024</span>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna aliqua
+                                            </p>
+                                            <button type="button" class="btn btn-outline-primary">Ver Video</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <script>
+                            jQuery(window).on('load', function() {
+                                console.log("Ejecutando este script");
+                                const swiper_eventos = new Swiper(".isil-eventos", {
+                                    slidesPerView: 1,
+                                    spaceBetween: 10,
+                                    navigation: {
+                                        nextEl: ".swiper-button-next",
+                                        prevEl: ".swiper-button-prev",
+                                    },
+                                    breakpoints: {
+                                        640: {
+                                            slidesPerView: 1,
+                                            spaceBetween: 10,
+                                        },
+                                        768: {
+                                            slidesPerView: 2,
+                                            spaceBetween: 20,
+                                        },
+                                        1024: {
+                                            slidesPerView: 3,
+                                            spaceBetween: 30,
+                                        },
+                                    },
+
+                                });
+                            });
+                            </script>
+                        </div>
+                    </div>
+                    <!-- contenido tab2 -->
+
+                    <!-- contenido tab3 -->
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
+                        tabindex="0">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4 px-md-4 px-1 mb-md-0 mb-5">
+                                    <div class="item">
+                                        <img src="http://empleabilidad.isil.pe/wp-content/uploads/2024/06/mentor_icon.png"
+                                            alt="icon" width="78" height="78" class="mb-3">
+                                        <h2 class="text-primary">Entrena para tus entrevistas y
+                                            potencia tu LinkedIn</h2>
+                                        <div class="text-container">
+                                            <p>
+                                                Con la ayuda de expertos en empleabilidad y mediante simulaciones de
+                                                entrevistas laborales, esta asesoría está enfocada en brindarte un
+                                                reforzamiento integral basados en:
+                                            </p>
+                                            <ul>
+                                                <li>Fortalecer tu confianza en cada pregunta desafiante.</li>
+                                                <li>Repotenciar tu perfil de LinkedIn, asegurando que cada sección capte
+                                                    la atención de reclutadores y potencie tu red de contactos.</li>
+                                            </ul>
+
+                                            <select class="form-select mb-3" aria-label="Default select example">
+                                                <option selected>Open this select menu</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+
+                                            <button class="btn btn-primary">Registrarme</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 px-md-4 px-1 mb-md-0 mb-5">
+                                    <div class="item">
+                                        <img src="http://empleabilidad.isil.pe/wp-content/uploads/2024/06/mentor_icon.png"
+                                            alt="icon" width="78" height="78" class="mb-3">
+                                        <h2 class="text-primary">Entrena para tus entrevistas y
+                                            potencia tu LinkedIn</h2>
+                                        <div class="text-container">
+                                            <p>
+                                                Con la ayuda de expertos en empleabilidad y mediante simulaciones de
+                                                entrevistas laborales, esta asesoría está enfocada en brindarte un
+                                                reforzamiento integral basados en:
+                                            </p>
+                                            <ul>
+                                                <li>Fortalecer tu confianza en cada pregunta desafiante.</li>
+                                                <li>Repotenciar tu perfil de LinkedIn, asegurando que cada sección capte
+                                                    la atención de reclutadores y potencie tu red de contactos.</li>
+                                            </ul>
+
+                                            <select class="form-select mb-3" aria-label="Default select example">
+                                                <option selected>Open this select menu</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+
+                                            <button class="btn btn-primary">Registrarme</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 px-md-4 px-1 mb-md-0 mb-5">
+                                    <div class="item">
+                                        <img src="http://empleabilidad.isil.pe/wp-content/uploads/2024/06/mentor_icon.png"
+                                            alt="icon" width="78" height="78" class="mb-3">
+                                        <h2 class="text-primary">Entrena para tus entrevistas y
+                                            potencia tu LinkedIn</h2>
+                                        <div class="text-container">
+                                            <p>
+                                                Con la ayuda de expertos en empleabilidad y mediante simulaciones de
+                                                entrevistas laborales, esta asesoría está enfocada en brindarte un
+                                                reforzamiento integral basados en:
+                                            </p>
+                                            <ul>
+                                                <li>Fortalecer tu confianza en cada pregunta desafiante.</li>
+                                                <li>Repotenciar tu perfil de LinkedIn, asegurando que cada sección capte
+                                                    la atención de reclutadores y potencie tu red de contactos.</li>
+                                            </ul>
+
+                                            <select class="form-select mb-3" aria-label="Default select example">
+                                                <option selected>Open this select menu</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+
+                                            <button class="btn btn-primary">Registrarme</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- contenido tab3 -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- SECCION CON TABS -->
+
+<!-- SECCION CON CALL TO ACTION -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center mb-md-4 mb-3">
+                <h2>Te ayudamos a crecer</h2>
+            </div>
+        </div>
+        <div class="row justify-content-md-center grid gap-3">
+            <div class="col-md position-relative p-md-0 px-2">
+                <button class="btn btn-primary w-100 p-md-5 p-3" type="button">
+                    <div class="d-md-flex d-block justify-content-center grid gap-0 column-gap-4">
+                        <img src="http://empleabilidad.isil.pe/wp-content/uploads/2024/06/ico-headphone.png" alt="icon"
+                            width="65" height="65">
+                        <div class="text-container">
+                            <div class="h3 text-md-start text-center mb-0">Servicios</div>
+                            <span class="fw-light text-md-start text-center d-block">Asesorías personalizadas</span>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div class="col-md position-relative p-0 px-2">
+                <button class="btn btn-warning w-100 p-md-5 p-3" type="button">
+                    <div class="d-md-flex d-block justify-content-center grid gap-0 column-gap-4">
+                        <img src="http://empleabilidad.isil.pe/wp-content/uploads/2024/06/ico-headphone.png" alt="icon"
+                            width="65" height="65">
+                        <div class="text-container">
+                            <div class="h3 text-md-start text-center mb-0">Servicios</div>
+                            <span class="fw-light text-md-start text-center d-block">Asesorías personalizadas</span>
+                        </div>
+                    </div>
+                </button>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- SECCION CON CALL TO ACTION -->
+
+
+
+<?php get_footer() ?>

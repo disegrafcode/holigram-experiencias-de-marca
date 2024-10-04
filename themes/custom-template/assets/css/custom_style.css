@@ -1,0 +1,1576 @@
+/* VARIABLES GLOBALES DE BOOTSTRAP */
+:root, [data-bs-theme=light] {
+    --bs-primary-rgb: 0, 188, 255;
+    --bs-link-color: #0096C8;
+    --bs-link-color-rgb: 0, 150, 200;
+    --bs-body-color: #6c7281;
+}
+
+.btn-primary {
+    --bs-btn-bg: #00BCFF;
+    --bs-btn-border-color: #00BCFF;
+    --bs-btn-hover-bg: #0096FF;
+    --bs-btn-hover-border-color: #0096FF;
+    --bs-btn-active-bg: #0096FF;
+    --bs-btn-active-border-color: #0096FF;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #00BCFF;
+    --bs-btn-border-color: #00BCFF;
+    --bs-btn-hover-bg: #00BCFF;
+    --bs-btn-hover-border-color: #00BCFF;
+    --bs-btn-active-bg: #00BCFF;
+    --bs-btn-active-border-color: #00BCFF;
+}
+
+.btn-outline-primary:hover img {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(181deg) brightness(103%) contrast(103%)
+}
+
+.nav-pills {
+    --bs-nav-pills-link-active-bg: #00BCFF;
+}
+
+.pagination {
+    --bs-pagination-active-bg: #00BCFF;
+    --bs-pagination-active-border-color: #00BCFF;
+}
+
+.list-group {
+    --bs-list-group-active-bg: #00BCFF;
+    --bs-list-group-active-border-color: #00BCFF;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}
+
+.btn-warning {
+    --bs-btn-color: #ffffff;
+    --bs-btn-bg: #FDBF10;
+    --bs-btn-border-color: #FDBF10;
+    --bs-btn-hover-color: #000;
+    --bs-btn-hover-bg: #ffca2c;
+    --bs-btn-hover-border-color: #ffc720;
+    --bs-btn-focus-shadow-rgb: 217, 164, 6;
+    --bs-btn-active-color: #000;
+    --bs-btn-active-bg: #ffcd39;
+    --bs-btn-active-border-color: #ffc720;
+    --bs-btn-disabled-color: #000;
+    --bs-btn-disabled-bg: #ffc107;
+    --bs-btn-disabled-border-color: #ffc107;
+}
+
+@media (max-width: 567px) {
+
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 22px;
+    }
+
+    .lead {
+        font-size: 1rem;
+    }
+
+    .fs-1 {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* VARIABLES GLOBALES DE BOOTSTRAP */
+
+body,
+html {
+    min-height: 100vh;
+    position: relative;
+}
+
+main {
+    min-height: 450px;
+    padding-top: 56px;
+}
+
+section {
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+}
+
+.contenedor-textos-isil {
+    width: 100%;
+}
+
+.contenedor-textos-isil>:last-child {
+    margin-bottom: 0 !important;
+}
+
+.font-size-12px {
+    font-size: 12px;
+}
+
+.font-size-14px {
+    font-size: 14px;
+}
+
+.show-preload {
+    background-image: url(http://empleabilidad.isil.pe/wp-content/uploads/2024/06/loader-opt-2.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 28px 28px;
+}
+
+.text-shadow-1 {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-2 {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* CONFIGURACIONES GENERALES */
+
+/* BOTONES ISIL */
+.btn-isil-v1
+{
+  border-radius: 50px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+
+    -webkit-box-shadow: 0px 20px 40px 5px rgba(2,2,117,0.2); 
+    box-shadow: 0px 20px 40px 5px rgba(2,2,117,0.2);
+
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 3px;
+}
+
+.btn-isil-v1:hover
+{
+  animation: btn-isil-animation .8s ease 0s 1 normal forwards;
+}
+
+@keyframes btn-isil-animation {
+    0% {
+        transform: scale(1);
+-webkit-box-shadow: 0px 20px 40px 5px rgba(2,2,117,0.2); 
+box-shadow: 0px 20px 40px 5px rgba(2,2,117,0.2);
+    }
+
+    100% {
+        transform: scale(1.025);
+      -webkit-box-shadow: 0px 20px 50px 5px rgba(2,2,117,0.2); 
+box-shadow: 0px 20px 50px 5px rgba(2,2,117,0.2);
+    }
+}
+.btn-isil-v1::after
+{
+  content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-bottom: -1px;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDcgMTMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDEyLjYwMzhDMC43MjkxNjcgMTIuNjAzOCAwLjQ4OTU4MyAxMi41MSAwLjI4MTI1IDEyLjMyMjVDMC4wOTM3NSAxMi4xMTQyIDAgMTEuODc0NiAwIDExLjYwMzhDMCAxMS4zMzI5IDAuMDkzNzUgMTEuMDkzMyAwLjI4MTI1IDEwLjg4NUw0LjU5Mzc1IDYuNjAzNzZMMC4yODEyNSAyLjMyMjUxQzAuMDkzNzUgMi4xMTQxOCAwIDEuODc0NTkgMCAxLjYwMzc2QzAgMS4zMzI5MyAwLjA5Mzc1IDEuMDkzMzQgMC4yODEyNSAwLjg4NTAxQzAuNDg5NTgzIDAuNjk3NTEgMC43MjkxNjcgMC42MDM3NiAxIDAuNjAzNzZDMS4yNzA4MyAwLjYwMzc2IDEuNTEwNDIgMC42OTc1MSAxLjcxODc1IDAuODg1MDFMNi43MTg3NSA1Ljg4NTAxQzYuOTA2MjUgNi4wOTMzNCA3IDYuMzMyOTMgNyA2LjYwMzc2QzcgNi44NzQ1OSA2LjkwNjI1IDcuMTE0MTggNi43MTg3NSA3LjMyMjUxTDEuNzE4NzUgMTIuMzIyNUMxLjUxMDQyIDEyLjUxIDEuMjcwODMgMTIuNjAzOCAxIDEyLjYwMzhaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    opacity: 0.7;
+}
+
+.btn-isil-icon-open::after
+{
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNiAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEwLjEwMzhDMTIuMjkxNyAxMC4xMDM4IDEyLjUzMTIgMTAuMTk3NSAxMi43MTg4IDEwLjM4NUMxMi45MDYyIDEwLjU3MjUgMTMgMTAuODEyMSAxMyAxMS4xMDM4VjE0LjEwMzhDMTIuOTc5MiAxNC42NjYzIDEyLjc4MTIgMTUuMTM1IDEyLjQwNjIgMTUuNTFDMTIuMDMxMiAxNS44ODUgMTEuNTYyNSAxNi4wODI5IDExIDE2LjEwMzhIMkMxLjQzNzUgMTYuMDgyOSAwLjk2ODc1IDE1Ljg4NSAwLjU5Mzc1IDE1LjUxQzAuMjE4NzUgMTUuMTM1IDAuMDIwODMzMyAxNC42NjYzIDAgMTQuMTAzOFY1LjEwMzc2QzAuMDIwODMzMyA0LjU0MTI2IDAuMjE4NzUgNC4wNzI1MSAwLjU5Mzc1IDMuNjk3NTFDMC45Njg3NSAzLjMyMjUxIDEuNDM3NSAzLjEyNDU5IDIgMy4xMDM3Nkg1QzUuMjkxNjcgMy4xMDM3NiA1LjUzMTI1IDMuMTk3NTEgNS43MTg3NSAzLjM4NTAxQzUuOTA2MjUgMy41NzI1MSA2IDMuODEyMDkgNiA0LjEwMzc2QzYgNC4zOTU0MyA1LjkwNjI1IDQuNjM1MDEgNS43MTg3NSA0LjgyMjUxQzUuNTMxMjUgNS4wMTAwMSA1LjI5MTY3IDUuMTAzNzYgNSA1LjEwMzc2SDJWMTQuMTAzOEgxMVYxMS4xMDM4QzExIDEwLjgxMjEgMTEuMDkzOCAxMC41NzI1IDExLjI4MTIgMTAuMzg1QzExLjQ2ODggMTAuMTk3NSAxMS43MDgzIDEwLjEwMzggMTIgMTAuMTAzOFpNMTUuNzE4OCAwLjM4NTAxQzE1LjkwNjIgMC41OTMzNDMgMTYgMC44MjI1MSAxNiAxLjA3MjUxVjYuMTAzNzZDMTYgNi4zOTU0MyAxNS44OTU4IDYuNjI0NTkgMTUuNjg3NSA2Ljc5MTI2QzE1LjQ3OTIgNi45Nzg3NiAxNS4yMzk2IDcuMDcyNTEgMTQuOTY4OCA3LjA3MjUxQzE0LjY5NzkgNy4wNzI1MSAxNC40Njg4IDYuOTc4NzYgMTQuMjgxMiA2Ljc5MTI2QzE0LjA5MzggNi42MjQ1OSAxNCA2LjM5NTQzIDE0IDYuMTAzNzZWMy41MTAwMUw3IDEwLjYwMzhDNi43OTE2NyAxMC43OTEzIDYuNTUyMDggMTAuODg1IDYuMjgxMjUgMTAuODg1QzYuMDMxMjUgMTAuODg1IDUuODAyMDggMTAuNzkxMyA1LjU5Mzc1IDEwLjYwMzhDNS4zODU0MiAxMC4zOTU0IDUuMjgxMjUgMTAuMTU1OCA1LjI4MTI1IDkuODg1MDFDNS4yODEyNSA5LjYzNTAxIDUuMzg1NDIgOS40MDU4NCA1LjU5Mzc1IDkuMTk3NTFMMTIuNjI1IDIuMDQxMjZIMTAuMDMxMkM5LjczOTU4IDIuMDQxMjYgOS41IDEuOTQ3NTEgOS4zMTI1IDEuNzYwMDFDOS4xMjUgMS41OTMzNCA5LjAzMTI1IDEuMzY0MTggOS4wMzEyNSAxLjA3MjUxQzkuMDMxMjUgMC44MDE2NzYgOS4xMjUgMC41NzI1MSA5LjMxMjUgMC4zODUwMUM5LjQ3OTE3IDAuMTk3NTEgOS43MDgzMyAwLjEwMzc2IDEwIDAuMTAzNzZIMTVDMTUuMjkxNyAwLjEwMzc2IDE1LjUzMTIgMC4xOTc1MSAxNS43MTg4IDAuMzg1MDFaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K") !important;
+}
+
+.btn-isil-icon-download-file::after
+{
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxMiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDRIOFYwTDEyIDRaTTggNUgxMlYxNC41QzExLjk3OTIgMTQuOTE2NyAxMS44MzMzIDE1LjI3MDggMTEuNTYyNSAxNS41NjI1QzExLjI3MDggMTUuODMzMyAxMC45MTY3IDE1Ljk3OTIgMTAuNSAxNkgxLjVDMS4wODMzMyAxNS45NzkyIDAuNzI5MTY3IDE1LjgzMzMgMC40Mzc1IDE1LjU2MjVDMC4xNjY2NjcgMTUuMjcwOCAwLjAyMDgzMzMgMTQuOTE2NyAwIDE0LjVWMS41QzAuMDIwODMzMyAxLjA4MzMzIDAuMTY2NjY3IDAuNzI5MTY3IDAuNDM3NSAwLjQzNzVDMC43MjkxNjcgMC4xNjY2NjcgMS4wODMzMyAwLjAyMDgzMzMgMS41IDBIN1Y0QzcgNC4yOTE2NyA3LjA5Mzc1IDQuNTMxMjUgNy4yODEyNSA0LjcxODc1QzcuNDY4NzUgNC45MDYyNSA3LjcwODMzIDUgOCA1Wk03Ljk2ODc1IDkuMjE4NzVMNi43NSAxMC40Mzc1VjcuMjVDNi43MDgzMyA2Ljc5MTY3IDYuNDU4MzMgNi41NDE2NyA2IDYuNUM1LjU0MTY3IDYuNTQxNjcgNS4yOTE2NyA2Ljc5MTY3IDUuMjUgNy4yNVYxMC40Mzc1TDQgOS4yMTg3NUMzLjg3NSA5LjA3MjkyIDMuNzA4MzMgOSAzLjUgOUMzLjI5MTY3IDkgMy4xMTQ1OCA5LjA3MjkyIDIuOTY4NzUgOS4yMTg3NUMyLjY3NzA4IDkuNTcyOTIgMi42NzcwOCA5LjkyNzA4IDIuOTY4NzUgMTAuMjgxMkw1LjQ2ODc1IDEyLjc4MTJDNS44MjI5MiAxMy4wNzI5IDYuMTc3MDggMTMuMDcyOSA2LjUzMTI1IDEyLjc4MTJMOS4wMzEyNSAxMC4yODEyQzkuMzIyOTIgOS45MjcwOCA5LjMyMjkyIDkuNTcyOTIgOS4wMzEyNSA5LjIxODc1QzguNjc3MDggOC45MjcwOCA4LjMyMjkyIDguOTI3MDggNy45Njg3NSA5LjIxODc1WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==") !important;
+}
+
+@media only screen and (max-width: 767px) {
+    .btn-isil-v1
+    {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 14px;
+    }
+}
+/* BOTONES ISIL */
+
+/* IMAGEN DE FONDO */
+.section_background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.desktop_background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.mobile_background {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 767px) {
+    .mobile_background {
+        display: block;
+    }
+
+    .desktop_background {
+        display: none;
+    }
+}
+
+/* IMAGEN DE FONDO */
+
+/* MENU PRINCIPAL */
+.logo-brand {
+    max-width: 200px;
+    height: auto;
+}
+
+.custom-menu #menu-menu-principal li a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+
+.custom-menu #menu-menu-principal {
+    gap: 20px;
+}
+
+.custom-menu #menu-menu-principal .current_page_item a {
+    color: #3377FF;
+}
+
+@media only screen and (max-width: 767px) {
+
+    .custom-menu .navbar-collapse {
+        position: absolute;
+        top: 70px;
+        right: 10px;
+        background-color: white;
+        min-width: 240px;
+        border-top: solid 4px #009FE3;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+        ;
+    }
+
+    .custom-menu #menu-menu-principal li {
+        padding: 10px;
+        padding-left: 15px;
+        padding-right: 10px;
+        border-bottom: solid 1px #E7E7E7;
+    }
+
+    .custom-menu #menu-menu-principal li:last-child {
+        border-bottom: none;
+    }
+
+    .custom-menu #menu-menu-principal {
+        gap: 0;
+    }
+}
+
+/* MENU PRINCIPAL */
+
+/* MENU NAVEGACIÓN DEL FOOTER */
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer ul li a {
+    color: white;
+}
+
+footer {
+    font-size: 14px;
+}
+
+footer h1,
+footer h2,
+footer h3,
+footer h4,
+footer h5,
+footer h6 {
+    position: relative;
+}
+
+footer h1::after,
+footer h2::after,
+footer h3::after,
+footer h4::after,
+footer h5::after,
+footer h6::after {
+    content: "";
+    height: 1px;
+    width: 100%;
+    background-color: white;
+    display: block;
+    margin-top: 10px;
+    opacity: .5;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer ul li:empty {
+    display: none;
+}
+
+@media only screen and (max-width: 767px) {
+    footer .wp-block-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+/* MENU NAVEGACIÓN DEL FOOTER */
+
+/* BOTON VER VIDEO */
+.btn-ver-video::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-bottom: -2px;
+    background-image: url(http://empleabilidad.isil.pe/wp-content/uploads/2024/06/icon-play.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.btn-ver-video:hover::before {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(7500%) hue-rotate(121deg) brightness(106%) contrast(101%);
+}
+
+.btn-ver-video {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* BOTON VER VIDEO */
+
+/* SECCIÓN BANNER ISIL */
+.isil-slider {
+    background-color: lightgray;
+    position: relative;
+}
+
+.isil-slider .swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.isil-slider .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+
+    /* MANEJA PROPORCIONES */
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 30%;
+    /* MANEJA PROPORCIONES */
+}
+
+.isil-slider .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.isil-slider .swiper-button-prev {
+    background-color: black;
+    left: 0;
+    width: 36px;
+}
+
+.isil-slider .swiper-button-next {
+    background-color: black;
+    right: 0;
+    width: 36px;
+}
+
+.isil-slider .swiper-button-prev:after,
+.isil-slider .swiper-button-next:after {
+    font-size: 24px;
+    color: white;
+}
+
+.isil-slider .swiper-button-disabled {
+    pointer-events: all;
+}
+
+.isil-slider .swiper-pagination-bullet {
+    background: white;
+    opacity: 0.5;
+}
+
+.isil-slider .swiper-pagination-bullet-active {
+    background: #FDBF10;
+    opacity: 1;
+}
+
+@media only screen and (max-width: 767px) {
+    .isil-slider .swiper-slide {
+        /* CAMBIA LA PROPORCIÓN EN VESRIONES MOBILES */
+        width: 100%;
+        padding-bottom: 300px;
+        /* CAMBIA LA PROPORCIÓN EN VESRIONES MOBILES */
+    }
+}
+
+/* SECCIÓN BANNER ISIL */
+
+/* SECCIÓN 2 */
+.isil-linea-izquierda {
+    border-left: 1px solid black;
+}
+
+@media only screen and (max-width: 911px) {
+    .isil-linea-izquierda {
+        border-left: none;
+    }
+}
+
+/* SECCIÓN 2 */
+
+/* SECCIÓN RECUADROS */
+.isil-items-porcentaje {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* SECCIÓN RECUADROS */
+
+/* SECCIÓN SLIDER TESTIMONIOS */
+.isil-testimonial .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+/* SECCIÓN SLIDER TESTIMONIOS */
+
+/* SECCIÓN BOTONES CTA */
+.isil-botones-cta {
+    min-height: 100%;
+    border-radius: 0 !important;
+    -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.isil-botones-cta:hover {
+    transform: scale(1.025);
+    transition: all 0.3s ease;
+}
+
+/* SECCIÓN BOTONES CTA */
+
+/* ISIL CUSTOM NAV */
+.isil-custom-nav {
+    color: black;
+}
+
+.isil-custom-nav.active {
+    position: relative;
+    font-weight: 600;
+}
+
+.isil-custom-nav.active::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    height: 3px;
+    width: 80%;
+    background-color: #00BCFF;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+/* ISIL CUSTOM NAV */
+
+/* INPUTS CON ICONO BOLSA LABORAL */
+
+.custom-buscardo-isil-empleos .form-control {
+    padding-left: 40px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 20px 20px;
+}
+
+.custom-buscardo-isil-empleos input[aria-label="First name"] {
+    background-image: url('http://empleabilidad.isil.pe/wp-content/uploads/2024/07/zoom.png');
+}
+
+.custom-buscardo-isil-empleos input[aria-label="Last name"] {
+    background-image: url('http://empleabilidad.isil.pe/wp-content/uploads/2024/07/mark-ic.png');
+}
+
+/* INPUTS CON ICONO BOLSA LABORAL */
+
+/* PÁGINA DE BOLSA LABORAL */
+
+.item-isil-empleo {
+    border-bottom: 1px solid gray;
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.item-isil-empleo .empleo-info {
+    width: 70%;
+    max-width: 700px
+}
+
+
+@media only screen and (max-width: 991px) {
+    .custom-buscardo-isil-empleos input {
+        width: 100% !important;
+        display: block;
+    }
+
+    .custom-buscardo-isil-empleos button {
+        width: 100% !important;
+        display: block;
+        border-radius: 8px !important;
+        border-top-left-radius: 8px !important;
+        border-bottom-left-radius: 8px !important;
+    }
+
+    .item-isil-empleo .empleo-info {
+        width: 100%;
+    }
+}
+
+/* PÁGINA DE BOLSA LABORAL */
+
+/* SECCIÓN DIVISOR */
+.custom-divider {
+    background-color: darkblue;
+    background-position: center;
+    background-size: cover;
+    padding: 15px;
+    padding-left: 30px;
+    color: white;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 20px 10px -15px;
+}
+
+.custom-divider span {
+    width: 48px;
+    height: 48px;
+    background-color: #DAF4FF;
+    border-radius: 24px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-divider span img {
+    width: 20px;
+    height: auto;
+}
+
+.custom-divider p {
+    margin-bottom: 0;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+}
+
+.custom-divider::after {
+    content: "";
+    height: 100%;
+    background-color: #009fff;
+    width: 20px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-bottom-left-radius: 8px;
+    -moz-border-radius-topleft: 8px;
+    -moz-border-radius-bottomleft: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    opacity: 0.8;
+}
+
+.custom-divider::before {
+    content: "";
+    height: 90px;
+    width: 90px;
+    display: block;
+    position: absolute;
+    top: -18px;
+    right: 12px;
+    background-image: url(http://biblioteca.isil.pe/wp-content/uploads/2024/08/arrow-down.png);
+    background-position: center;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 767px) {
+    .custom-divider span {
+        width: 28px;
+        height: 28px;
+    }
+
+    .custom-divider span img {
+        width: 12px;
+    }
+
+    .custom-divider p {
+        font-size: 12px;
+    }
+
+    .custom-divider::after {
+        width: 10px;
+    }
+
+    .custom-divider {
+        padding: 10px;
+        padding-left: 15px;
+    }
+
+    .custom-divider::before {
+        height: 60px;
+        width: 60px;
+        top: -12px;
+        right: 18px;
+    }
+}
+
+/* SECCIÓN DIVISOR */
+
+/* SECCIÓN DIVISOR SIMPLE */
+.custom-divider-v2 {
+    background-color: gray;
+    background-position: center;
+    background-size: cover;
+    padding: 20px;
+    padding-left: 30px;
+    color: white;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.custom-divider-v2 span {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-divider-v2 span img {
+    width: 20px;
+    height: auto;
+}
+
+.custom-divider-v2 p {
+    margin-bottom: 0;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+}
+
+@media only screen and (max-width: 767px) {
+
+
+    .custom-divider-v2 span img {
+        width: 12px;
+    }
+
+    .custom-divider-v2 p {
+        font-size: 12px;
+    }
+
+    .custom-divider-v2 {
+        padding: 15px;
+        padding-left: 15px;
+    }
+}
+
+/* SECCIÓN DIVISOR SIMPLE */
+
+/* SECCIÓN TARJETAS VERSIÓN 1 */
+.tarjeta-isil-bilioteca {
+    padding: 60px;
+    color: white;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+    height: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.tarjeta-isil-bilioteca:hover .section_background {
+    animation: tarjetaAnim .8s ease 0s 1 normal forwards;
+}
+
+.tarjeta-isil-bilioteca .section_background {
+    animation: tarjetaAnimOut .8s ease 0s 1 normal both;
+}
+
+.descripcion-tarjeta {
+    width: 50%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.descripcion-tarjeta p {
+    margin-bottom: 0;
+}
+
+.descripcion-tarjeta .btn:hover {
+    animation: btnAnimation .8s ease 0s 1 normal forwards;
+}
+
+@keyframes btnAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.025);
+    }
+}
+
+@keyframes tarjetaAnim {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes tarjetaAnimOut {
+    0% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .descripcion-tarjeta {
+        width: 80%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+
+    }
+
+    .tarjeta-isil-bilioteca {
+        padding: 40px;
+        justify-content: center;
+    }
+}
+
+/* SECCIÓN TARJETAS VERSIÓN 1 */
+
+/* SECCIÓN TARJETAS VERSIÓN 2 */
+.tarjeta2-isil-bilioteca {
+    padding: 40px;
+    color: white;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+    height: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 430px;
+}
+
+.tarjeta2-isil-bilioteca-hovered:hover p {
+    display: block;
+    animation: cardAnimation .8s ease 0s 1 normal forwards;
+}
+
+.tarjeta2-isil-bilioteca-hovered:hover .btn {
+    position: relative;
+    z-index: 10;
+
+}
+
+.descripcion-tarjeta2 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.tarjeta2-isil-bilioteca p {
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 15px;
+    display: none;
+}
+
+@keyframes cardAnimation {
+    0% {
+        transform: scale(.8);
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
+
+.tarjeta2-isil-bilioteca:hover .section_background {
+    animation: tarjetaAnim .8s ease 0s 1 normal forwards;
+}
+
+.tarjeta2-isil-bilioteca .section_background {
+    animation: tarjetaAnimOut .8s ease 0s 1 normal both;
+}
+
+@media only screen and (max-width: 767px) {
+    .tarjeta2-isil-bilioteca {
+        min-height: 336px;
+    }
+
+}
+
+.btn-tarjeta {
+    border-radius: 25px;
+    display: inline-block;
+}
+
+.btn-tarjeta:after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-bottom: -1px;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDcgMTMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDEyLjYwMzhDMC43MjkxNjcgMTIuNjAzOCAwLjQ4OTU4MyAxMi41MSAwLjI4MTI1IDEyLjMyMjVDMC4wOTM3NSAxMi4xMTQyIDAgMTEuODc0NiAwIDExLjYwMzhDMCAxMS4zMzI5IDAuMDkzNzUgMTEuMDkzMyAwLjI4MTI1IDEwLjg4NUw0LjU5Mzc1IDYuNjAzNzZMMC4yODEyNSAyLjMyMjUxQzAuMDkzNzUgMi4xMTQxOCAwIDEuODc0NTkgMCAxLjYwMzc2QzAgMS4zMzI5MyAwLjA5Mzc1IDEuMDkzMzQgMC4yODEyNSAwLjg4NTAxQzAuNDg5NTgzIDAuNjk3NTEgMC43MjkxNjcgMC42MDM3NiAxIDAuNjAzNzZDMS4yNzA4MyAwLjYwMzc2IDEuNTEwNDIgMC42OTc1MSAxLjcxODc1IDAuODg1MDFMNi43MTg3NSA1Ljg4NTAxQzYuOTA2MjUgNi4wOTMzNCA3IDYuMzMyOTMgNyA2LjYwMzc2QzcgNi44NzQ1OSA2LjkwNjI1IDcuMTE0MTggNi43MTg3NSA3LjMyMjUxTDEuNzE4NzUgMTIuMzIyNUMxLjUxMDQyIDEyLjUxIDEuMjcwODMgMTIuNjAzOCAxIDEyLjYwMzhaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    opacity: 0.7;
+}
+
+/* SECCIÓN TARJETAS VERSIÓN 2 */
+
+/* SECCIÓN ACERCA DE NOSOTROS */
+.isil-biblioteca-subtitulo
+{
+  color: #3377FF;
+  margin-bottom: 5px;
+  display:block;
+}
+.isil-biblioteca-titulo
+{
+  color:black;
+}
+.isil-biblioteca-linea-inicio{
+  position:relative;
+}
+.isil-biblioteca-linea-inicio::before
+{
+  content: "|";
+  display:inline-block;
+  font-weight: bolder;
+  margin-right: 5px;
+  margin-bottom: -23px;
+  color: #04c0ff;
+}
+
+@media only screen and (max-width: 767px)
+{
+  .isil-biblioteca-titulo
+  {
+    font-size:18px;
+  }
+  .isil-biblioteca-subtitulo
+  {
+    font-size:14px;
+  }
+}
+/* SECCIÓN ACERCA DE NOSOTROS */
+
+/* RECUADRO RESALTADO */
+.isil-texto-resaltar
+{
+    display: flex;
+    background-color: white;
+    padding: 30px;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    -webkit-box-shadow: 0px 20px 40px 5px rgba(2, 2, 117, 0.2);
+    box-shadow: 0px 20px 40px 5px rgba(2, 2, 117, 0.2);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-left: solid 4px #009fff;
+}
+
+@media only screen and (max-width: 991px)
+{
+  .isil-texto-resaltar
+  {
+    gap: 8px;
+    font-size: 14px;
+    padding: 20px;
+  }
+  .isil-texto-resaltar img
+  {
+    max-width: 40px;
+    
+  }
+}
+/* RECUADRO RESALTADO */
+
+/* TARJETAS VERSION 3 */
+.isil-biblioteca-tarjeta-v3
+{
+  height: 100%;
+  border: none;
+-webkit-box-shadow: 0px 20px 40px 0px rgba(0,0,0,0.08); 
+box-shadow: 0px 20px 40px 0px rgba(0,0,0,0.08);
+}
+
+.isil-biblioteca-tarjeta-v3 .card-body
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  padding: 30px;
+  padding-top: 40px;
+  position:relative;
+}
+
+.isil-biblioteca-tarjeta-v3 .tarjeta-v3-icono
+{
+  background-color: #009FE3;
+  padding: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  position:absolute;
+  top:0;
+  left: 25px;
+  transform: translate(0, -50%) !important;
+-webkit-box-shadow: 0px 16px 20px 0px rgba(2,2,117,0.15); 
+box-shadow: 0px 16px 20px 0px rgba(2,2,117,0.15);
+}
+.isil-biblioteca-tarjeta-v3 .tarjeta-v3-icono img
+{
+  display: inline-block;
+}
+/* TARJETAS VERSION 3 */
+
+/* CONTENIDOS EN COLUMNAS */
+.contenedor-textos-isil ul
+{
+  list-style: none;
+}
+
+.contenedor-textos-isil ul li
+{
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.contenedor-textos-isil ul li::before
+{
+  display: inline-block;
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxOCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3Ljc1IDIuMTAzNzZDMTcuNzUgMi40NDIzIDE3LjYzMjggMi43NDE3OCAxNy4zOTg0IDMuMDAyMkw3LjM5ODQ0IDEzLjAwMjJDNy4xMzgwMiAxMy4yMzY2IDYuODM4NTQgMTMuMzUzOCA2LjUgMTMuMzUzOEM2LjE2MTQ2IDEzLjM1MzggNS44NjE5OCAxMy4yMzY2IDUuNjAxNTYgMTMuMDAyMkwwLjYwMTU2MiA4LjAwMjJDMC4zNjcxODggNy43NDE3OCAwLjI1IDcuNDQyMyAwLjI1IDcuMTAzNzZDMC4yNSA2LjczOTE4IDAuMzgwMjA4IDYuNDM5NyAwLjY0MDYyNSA2LjIwNTMyQzAuODc1IDUuOTcwOTUgMS4xNjE0NiA1Ljg1Mzc2IDEuNSA1Ljg1Mzc2QzEuODM4NTQgNS44NTM3NiAyLjEzODAyIDUuOTcwOTUgMi4zOTg0NCA2LjIwNTMyTDYuNSAxMC4zNDU5TDE1LjYwMTYgMS4yMDUzMkMxNS44NjIgMC45NzA5NDcgMTYuMTYxNSAwLjg1Mzc2IDE2LjUgMC44NTM3NkMxNi44Mzg1IDAuODUzNzYgMTcuMTI1IDAuOTcwOTQ3IDE3LjM1OTQgMS4yMDUzMkMxNy42MTk4IDEuNDM5NyAxNy43NSAxLjczOTE4IDE3Ljc1IDIuMTAzNzZaIiBmaWxsPSIjMzM3N0ZGIi8+Cjwvc3ZnPgo=");
+  background-position: center;
+    background-repeat: no-repeat;
+    background-size: 82% auto;
+    position: absolute;
+    left: -20px;
+    top: 3px;
+}
+
+.contenedor-textos-isil ol {
+    list-style-type: decimal;
+}
+
+.contenedor-textos-isil  ol li::marker {
+    color: #3377FF;
+    font-weight: 600;
+}
+
+.contenedor-textos-isil  ol li{
+    position: relative;
+  margin-bottom: 15px;
+}
+
+
+@media (max-width: 768px) { 
+    .columnas-invertidas-en-mobile .row {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+/* CONTENIDOS EN COLUMNAS */
+
+/* AGENDA BIBLIOTECA */
+.isil-pagination {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+}
+
+.isil-pagination .page-numbers {
+    text-decoration: none;
+    padding: 5px;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    color: gray;
+    border: solid 1px #8E8E8E;
+}
+
+.isil-pagination .current,
+.isil-pagination a:hover {
+    background-color: #009FE3;
+    border: none;
+    color: white;
+}
+
+.isil-pagination .next,
+.isil-pagination .prev {
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.date-agenda {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: #3377FF;
+    color: white;
+    font-size: 14px;
+    padding: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.date-agenda::before {
+    content: "";
+    margin-right: 5px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUBAMAAAB/pwA+AAAAFVBMVEUAAADv7//////19fv29vz29vr29vs29YhHAAAABnRSTlMAEBCA39+vpsqZAAAAM0lEQVQI12PACVxBCALSQAgEmNPAwADIZIMwE5CZCIBTAVuSGAiCmYliIJhAtlqEc7ADAC7dIT1B54CRAAAAAElFTkSuQmCC");
+    background-position: cover;
+
+}
+
+.agenda-item h5 {
+    color: black;
+}
+
+.agenda-item .card {
+    border: none;
+    -webkit-box-shadow: 0px 20px 40px 0px rgba(2, 2, 40, 0.1);
+    box-shadow: 0px 20px 40px 0px rgba(2, 2, 40, 0.1);
+}
+
+.agenda-item .card-body {
+    padding: 40px;
+}
+
+.agenda-item .card-text {
+    margin-bottom: 20px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    display: -webkit-box;
+    max-height: 6em;
+    line-height: 1.5em;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.datos-adicionales-biblioteca ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 5px;
+    column-gap: 10px;
+}
+
+.datos-adicionales-biblioteca ul li {
+    color: #3377FF;
+    font-size: 14px;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.buscador-input-biblioteca {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.buscador-input-biblioteca::after {
+    content: "";
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGUAAABlCAMAAABjot39AAAAQlBMVEUAAAAzeP8yd/8yd/8ydv8ydv81dP80eP8ydv8yd/8ydv8yd/80eP8ydv8zdv8zdv8zd/8wdP8yd/8zdv8ydv8zd/8lFxoJAAAAFXRSTlMAIN/Af2AQQKCfkO+AcO+wz0Awz1CgVYx6AAACnklEQVRo3u2Z3ZLbIAxGBRiIwdixE97/Vbt70Xq6Mf4kbfC0nZ7rzR4r+kEmhDB+GJeH/eDhXCqroXezFpfrV+zi32gKg60t3JtEq6vnjOZNjr4eszv6eUquXOaiD0SCU4Wz5irDPuWSUuUMUslQa3/NWHWMQkl/zVD1JLGkZ26ep+V6dx+cFrlnNWNrAOelbOHnmI7FNccApz0bEhfD1wPB20a8QZkUF+mIaHUVYA4fLlKL43gisCxHgQTpTHXnEl9fmeicSVxnFki4GgtCARKswcE4JMEanJlNPZUWQZndhP21E14SOvJzb4hLfJkzrQdc4fNIUtraApI8lJ3IfcQ7+DtZMHMjgyAUaTCGlRZHMvJBY+INrBAA9EFiJX8jABhPD076ZhJiWBPzDtIiTgzufFzHuBMOux/sVfKRaRiWIrbcFBb/N1vyJXmxoHXF89IwCnEhADwEOQFbqSSwRn+CTbWjn+kFFJl0j19Ye9L4zQEz8L7X8K2RXCOvEouiJ3FeB3BAyF4UH9z9wCtyj7s66zNjMntRTvB5BCs2f6WqXn0DNQqW3XljSbb6giFBMNaI6wu3tNVojBW+i/sq12wHkoV5Eu3M5yXgc21nBWdmJ7X7JiTVXdzhp6wHgUhzGWzlekKx6mvFWI+x4/qb4pkyuO/T3iS7cfDr6v0wPr59rXirAvSa+yWa8E9pzEXRuGtKIF2jKfkSjbGVT3ZaDU3scMZAN7XGvHy0fXWONNiDHUCDPd6e5SN9OoCGR0z3liLQDtJgzDO5XHfskvafw2Ua7NriJ2b//1002tOpXKPx/zV/rCaSCOXpNId3aybQNh01jq7QzERXaKgDE4ilk2ahLkzqvtRrRurFdPgi2E/jDHXE3PKnw1Nvwq8wfgDScTO+WPf6PgAAAABJRU5ErkJggg==");
+    background-size: 100% 100%;
+    backgroud-position: center;
+
+}
+
+.buscador-input-biblioteca input {
+    width: 100%;
+    padding: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: solid 1px #BFBFBF;
+    color: #3377FF;
+}
+
+.filtro-categoria-biblioteca ul {
+    list-style: none;
+    padding: 0;
+}
+
+.filtro-categoria-biblioteca ul li {
+    margin-bottom: 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.filtro-categoria-biblioteca ul li input {
+    display: none;
+}
+
+.filtro-categoria-biblioteca ul li label {
+    cursor: pointer;
+}
+
+.filtro-categoria-biblioteca ul li label::before {
+    content: "";
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    margin-right: 6px;
+    margin-bottom: -2px;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUBAMAAAB/pwA+AAAAJ1BMVEUAAAAzdv9AcP8yeP8wcP8yd/8zd/8zd/8zdv8ydv80eP81df8zd/9lyftyAAAADHRSTlMAzxBfEN/vv6BwQDDcCrW2AAAAQklEQVQI12MgA7CULoAxHc8YwARlDirABYVQBDmC4YJsQPVQlcxnDsNV2pwxAQuChY+CBKHCcDOZgYIwsFOBOHcCAM3UE/QVG3thAAAAAElFTkSuQmCC");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.filtro-categoria-biblioteca ul li input:checked+label {
+    color: #3377FF;
+    font-weight: 600;
+}
+
+.filtro-etiquetas-biblioteca ul {
+    list-style: none;
+    padding: 0;
+}
+
+.filtro-etiquetas-biblioteca ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+
+.filtro-etiquetas-biblioteca ul li label {
+    font-size: 14px;
+    color: #8E8E8E;
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+    border: solid 1px #8E8E8E;
+}
+
+.filtro-etiquetas-biblioteca ul li label:hover {
+    border: solid 1px #3377FF;
+    color: #3377FF;
+    font-weight: 600;
+}
+
+.filtro-etiquetas-biblioteca ul li input:checked+label {
+    border: solid 2px #3377FF;
+    color: #3377FF;
+    font-weight: 600;
+}
+
+.filtro-etiquetas-biblioteca ul li input {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .agenda-item .card-body {
+        padding: 20px;
+    }
+    .date-agenda
+    {
+      font-size: 12px;
+      padding: 4px;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+    .card-title{
+      font-size: 18px;
+    }
+    .btn-isil-v1
+    {
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+/* AGENDA BIBLIOTECA */
+
+/* RECURSOS BIBLIOTECA */
+
+.item-recurso .card
+{
+  border: none;
+   border: none;
+    -webkit-box-shadow: 0px 20px 40px 0px rgba(2, 2, 40, 0.1);
+    box-shadow: 0px 20px 40px 0px rgba(2, 2, 40, 0.1);
+
+}
+
+.item-recurso .card-body
+{
+  padding: 30px;
+}
+
+.item-recurso .text-date-biblioteca
+{
+  color: #3377FF;
+}
+
+.item-recurso .btn-isil-v1
+{
+ width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+}
+
+.item-recurso .card-text
+{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    display: -webkit-box;
+    max-height: 6em;
+    line-height: 1.5em;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+@media (max-width: 768px) {
+  .item-recurso .card-body
+  {
+    padding: 25px;
+  }
+}
+
+/* RECURSOS BIBLIOTECA */
+
+/* DETALLE AGENDA / DETALLE RECURSOS */
+
+.breadcrumb-biblioteca .breadcrumb li a
+{
+  text-decoration: none;
+  color: #3377FF;
+}
+
+.breadcrumb-biblioteca
+{
+  font-size: 14px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #cccccc;
+  margin-bottom: 20px;
+}
+
+.breadcrumb-biblioteca ol
+{
+  margin: 0;
+  padding: 0;
+}
+
+.recursos-detalles
+{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  font-size: 14px;
+}
+.datos-detalle-agenda ul
+{
+  margin-bottom: 0;
+}
+.datos-detalle-agenda{
+  padding-bottom: 10px;
+  border-bottom: solid 1px #cccccc;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .recursos-detalles {
+    flex-direction: column;
+  }
+}
+/* DETALLE AGENDA / DETALLE RECURSOS */
+
+/* ULTIMOS DETALLES */
+.agenda-item
+{
+  height:100%;
+}
+.item-recurso
+{
+  margin-bottom: 30px;
+}
+.item-recurso .card, .agenda-item .card
+{
+  height:100%;
+}
+
+.item-recurso .card-body,
+.agenda-item .card-body
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* ULTIMOS DETALLES */
+/* CONTADOR DE VISITAS */
+.contador-de-visitas-container
+{
+  max-width: 180px;
+}
+.contador-header
+{
+  background-color: #0076a7;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  text-align: center;
+  text-shadow:1px 1px 0px rgba(0,0,0,0.7);
+}
+.contador-header::before{
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  
+  margin-bottom: -3px;
+  margin-right: 3px;
+  background-image: url("http://biblioteca.isil.pe/wp-content/uploads/2024/09/bars.gif");
+  background-size: 100% 100%;
+}
+.contador-visitas-contenido
+{
+  padding: 10px;
+  background-color: rgba(255,255,255, .25);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  text-align: center;
+  font-size: 12px;
+
+
+}
+.contador-visitas-datos
+{
+  text-shadow:1px 1px 0px rgba(0,0,2px,0.25);
+}
+
+.vistas-hoy i
+{
+  line-height:18px;
+  font-size: 14px;
+
+}
+
+.visitas-ayer i
+{
+  line-height: 18px;
+  font-size: 14px;
+}
+
+.contador-visitas-numeros
+{
+  background-color: black;
+  display: inline-block;
+  font-size: 20px;
+  padding: 4px;
+  font-family: arial, verdana, sans-serif;
+  letter-spacing: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+  border-radius: 5px;
+
+    background-image: url(http://biblioteca.isil.pe/wp-content/uploads/2024/09/bg-6.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  
+  border: solid 1px #b6b4b4;
+
+text-shadow:1px 1px 0px rgba(0,0,0,0.5);
+
+}
+
+@media (max-width: 768px){  
+  .contador-de-visitas-container
+  {
+    margin:auto;
+  }
+}
+/* CONTADOR DE VISITAS */

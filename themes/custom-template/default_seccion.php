@@ -1,0 +1,1 @@
+<h2>Sección Por default</h2>
