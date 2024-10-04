@@ -70,4 +70,4 @@
             <!-- SEO Y POSICIONAMIENTO -->
         </header>
         <div id="container">
-            <main id="content" role="main">
+            <div id="content" role="main">
