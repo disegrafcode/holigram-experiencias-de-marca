@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col small text-center">
                     © <?php echo esc_html(date_i18n(__('Y', 'customTemplate'))); ?> <?php echo esc_html(get_bloginfo('name')); ?>
-                    todos los derechos reservados. Desarrollado por ISIL
+                    todos los derechos reservados. Desarrollado por <a href="https://holigram.pe/" target="_blank" rel="noopener noreferrer"> holigram.pe</a>
                 </div>
             </div>
         </div>
