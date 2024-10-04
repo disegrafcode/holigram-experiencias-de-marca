@@ -4,7 +4,7 @@
             <h1 class="entry-title" itemprop="name"><?php the_title(); ?></h1> <?php edit_post_link(); ?>
         </header>
 
-        <main id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <section>
                 <div class="container">
                     <div class="row">
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </section>
-        </main>
+        </div>
 
         <?php if (comments_open() && !post_password_required()) {
             comments_template('', true);
