@@ -5,6 +5,8 @@ require_once dirname(__FILE__) . '/includes/funciones.php'; /* CUSTOM SEARCH FOR
 require_once dirname(__FILE__) . '/includes/pagina-de-opciones.php'; /* CREAMOS PÁGINA DE OPCIONES PARA AL WEB */
 require_once dirname(__FILE__) . '/includes/shortcodes.php'; /* SHORTCODES DE LA WEB */
 
+require_once dirname(__FILE__) . '/includes/custom_post_listas'; /* CUSTOM POST LISTAS */
+
 /* INSERTA EL ESTILO CSS DEL BOOTSTRAP */
 function main_style_theme()
 {

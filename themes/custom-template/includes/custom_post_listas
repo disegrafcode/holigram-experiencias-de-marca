@@ -1,0 +1,104 @@
+<?php
+// Función para registrar el tipo de entrada personalizada "Listas"
+function registrar_tipo_entrada_listas() {
+    $labels = array(
+        'name'               => 'Listas',
+        'singular_name'      => 'Lista',
+        'menu_name'          => 'Listas',
+        'name_admin_bar'     => 'Lista',
+        'add_new'            => 'Añadir Nueva',
+        'add_new_item'       => 'Añadir Nueva Lista',
+        'new_item'           => 'Nueva Lista',
+        'edit_item'          => 'Editar Lista',
+        'view_item'          => 'Ver Lista',
+        'all_items'          => 'Todas las Listas',
+        'search_items'       => 'Buscar Listas',
+        'not_found'          => 'No se encontraron Listas',
+        'not_found_in_trash' => 'No se encontraron Listas en la papelera',
+    );
+  
+    $args = array(
+        'labels'             => $labels,
+        'public'             => false, // Oculto en el front-end
+        'exclude_from_search'=> true, // Excluido de las búsquedas
+        'publicly_queryable' => false, // No permite generar URLs visibles
+        'show_ui'            => true, // Mostrar en el panel de administración
+        'show_in_menu'       => true, 
+        'query_var'          => false,
+        'rewrite'            => false, // Sin reescritura de URLs
+        'capability_type'    => 'post',
+        'has_archive'        => false,
+        'hierarchical'       => true, // Para que soporte atributos de página
+        'menu_position'      => 5,
+        'supports'           => array('title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes'), // Soportes habilitados
+    );
+  
+    register_post_type('listas', $args);
+}
+add_action('init', 'registrar_tipo_entrada_listas');
+
+// Función para registrar las taxonomías personalizadas: categorías y etiquetas
+function registrar_taxonomias_listas() {
+    // Categorías personalizadas para "Listas"
+    $labels_cat = array(
+        'name'              => 'Categorías de Listas',
+        'singular_name'     => 'Categoría de Lista',
+        'search_items'      => 'Buscar Categorías',
+        'all_items'         => 'Todas las Categorías',
+        'parent_item'       => 'Categoría Padre',
+        'parent_item_colon' => 'Categoría Padre:',
+        'edit_item'         => 'Editar Categoría',
+        'update_item'       => 'Actualizar Categoría',
+        'add_new_item'      => 'Añadir Nueva Categoría',
+        'new_item_name'     => 'Nuevo Nombre de Categoría',
+        'menu_name'         => 'Categorías',
+    );
+  
+    $args_cat = array(
+        'hierarchical'      => true, // Como categorías, con jerarquía
+        'labels'            => $labels_cat,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => false,
+        'rewrite'           => false, // Sin reescritura de URLs
+    );
+  
+    register_taxonomy('listas_categoria', array('listas'), $args_cat);
+
+    // Etiquetas personalizadas para "Listas"
+    $labels_tag = array(
+        'name'                       => 'Etiquetas de Listas',
+        'singular_name'              => 'Etiqueta de Lista',
+        'search_items'               => 'Buscar Etiquetas',
+        'popular_items'              => 'Etiquetas Populares',
+        'all_items'                  => 'Todas las Etiquetas',
+        'edit_item'                  => 'Editar Etiqueta',
+        'update_item'                => 'Actualizar Etiqueta',
+        'add_new_item'               => 'Añadir Nueva Etiqueta',
+        'new_item_name'              => 'Nuevo Nombre de Etiqueta',
+        'separate_items_with_commas' => 'Separar etiquetas con comas',
+        'add_or_remove_items'        => 'Añadir o eliminar etiquetas',
+        'choose_from_most_used'      => 'Elige de las más usadas',
+        'menu_name'                  => 'Etiquetas',
+    );
+  
+    $args_tag = array(
+        'hierarchical'      => false, // Como etiquetas, sin jerarquía
+        'labels'            => $labels_tag,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => false,
+        'rewrite'           => false, // Sin reescritura de URLs
+    );
+  
+    register_taxonomy('listas_etiqueta', array('listas'), $args_tag);
+}
+add_action('init', 'registrar_taxonomias_listas');
+
+// Evitar que el tipo de entrada "Listas" sea accesible desde el front-end
+function ocultar_tipo_entrada_listas($query) {
+    if (!is_admin() && $query->is_main_query() && $query->get('post_type') === 'listas') {
+        $query->set_404();
+    }
+}
+add_action('pre_get_posts', 'ocultar_tipo_entrada_listas');
