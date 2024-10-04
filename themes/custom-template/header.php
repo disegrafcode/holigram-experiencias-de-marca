@@ -70,4 +70,4 @@
             <!-- SEO Y POSICIONAMIENTO -->
         </header>
         <div id="container">
-             <div id="content" role="main" class="container pt-4"> <!-- ajuste temporal -->
+             <div id="content" role="main" class="container"> <!-- ajuste temporal -->
