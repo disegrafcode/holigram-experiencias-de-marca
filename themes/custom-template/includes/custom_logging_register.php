@@ -1,7 +1,6 @@
 <?php
-
 function custom_add_scripts() {
-    // Encolar jQuery
+    // Encolar jQuery si no está ya encolado
     wp_enqueue_script('jquery');
 
     // Pasar el estado de login al script de JavaScript
@@ -19,7 +18,7 @@ function custom_js_code() {
     ?>
     <script type="text/javascript">
         (function($) {
-            // Función para agregar lista y verificar el estado del usuario
+            // Definir la función 'addLista' en el ámbito global
             window.addLista = function() {
                 // Verificar si el usuario está logueado
                 if (wp_user_data.is_logged_in === 'true') {
@@ -30,10 +29,9 @@ function custom_js_code() {
                 }
             };
 
-            // Enviar formulario de login al hacer clic en "Iniciar Sesión"
+            // Enviar formulario de login al hacer click en "Iniciar Sesión"
             $('#loginForm').on('submit', function(e) {
                 e.preventDefault(); // Evitar que el formulario se envíe de manera normal
-
                 var username = $('#username').val();
                 var password = $('#password').val();
 
@@ -48,20 +46,21 @@ function custom_js_code() {
                     },
                     success: function(response) {
                         if (response.success) {
-                            // Si el login es exitoso, recargar la página
-                            location.reload();
+                            // Si el login es exitoso, mostrar alerta y recargar la página
+                            alert('Logueado correctamente');
+                            location.reload(); // Recargar la página para reflejar el estado logueado
                         } else {
                             // Mostrar error
                             alert('Error: ' + response.data.message);
                         }
                     },
                     error: function(xhr, status, error) {
-                        // Manejar errores AJAX
-                        alert('Error: ' + error);
+                        // Mostrar error en caso de que la petición AJAX falle
+                        alert('Error en la solicitud: ' + error);
                     }
                 });
             });
-        })(jQuery); // Asegurar que se utiliza jQuery
+        })(jQuery); // Pasamos jQuery como alias $ para evitar conflictos
     </script>
 
     <!-- Modal de Bootstrap -->
