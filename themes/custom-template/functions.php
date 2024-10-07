@@ -4,6 +4,7 @@ require_once dirname(__FILE__) . '/includes/custom_search_form.php'; /* CUSTOM S
 require_once dirname(__FILE__) . '/includes/funciones.php'; /* CUSTOM SEARCH FORM */
 require_once dirname(__FILE__) . '/includes/pagina-de-opciones.php'; /* CREAMOS PÁGINA DE OPCIONES PARA AL WEB */
 require_once dirname(__FILE__) . '/includes/shortcodes.php'; /* SHORTCODES DE LA WEB */
+require_once dirname(__FILE__) . '/includes/custom_logging_register.php'; /* LOGIN / REGISTER PERSONALIZADO */
 
 require_once dirname(__FILE__) . '/includes/custom_post_listas'; /* CUSTOM POST LISTAS */
 
