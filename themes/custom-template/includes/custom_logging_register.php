@@ -29,9 +29,8 @@ function custom_js_code() {
                 }
             };
 
-            // Enviar formulario de login al hacer click en "Iniciar Sesión"
-            $('#loginForm').on('submit', function(e) {
-                alert();
+            // Usar delegación de eventos para asegurar que el formulario pueda ser capturado
+            $(document).on('submit', '#loginForm', function(e) {
                 e.preventDefault(); // Evitar que el formulario se envíe de manera normal
                 var username = $('#username').val();
                 var password = $('#password').val();
@@ -75,7 +74,7 @@ function custom_js_code() {
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="loginForm" method="post">
+                    <form id="loginForm">
                         <div class="form-group">
                             <label for="username">Usuario</label>
                             <input type="text" class="form-control" id="username" placeholder="Usuario" required>
