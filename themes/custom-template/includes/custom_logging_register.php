@@ -8,7 +8,7 @@ function custom_add_scripts() {
         'is_logged_in' => is_user_logged_in() ? 'true' : 'false',
     ));
 
-    // Encolar el script para agregar la funcionalidad
+    // Agregar el script personalizado en el footer
     add_action('wp_footer', 'custom_js_code');
 }
 add_action('wp_enqueue_scripts', 'custom_add_scripts');
@@ -16,15 +16,23 @@ add_action('wp_enqueue_scripts', 'custom_add_scripts');
 function custom_js_code() {
     ?>
     <script type="text/javascript">
-        function addLista() {
-            // Verificar si el usuario está logueado
-            if (wp_user_data.is_logged_in === 'true') {
-                console.log('Usuario logueado');
-            } else {
-                // Mostrar modal de login
-                $('#loginModal').modal('show');
+        // Encerrar todo en una función autoinvocada para asegurarse de que jQuery ($) esté disponible
+        (function($) {
+            function addLista() {
+                // Verificar si el usuario está logueado
+                if (wp_user_data.is_logged_in === 'true') {
+                    console.log('Usuario logueado');
+                } else {
+                    // Mostrar modal de login
+                    $('#loginModal').modal('show');
+                }
             }
-        }
+
+            // Asignar la función al botón
+            $('button').on('click', function() {
+                addLista();
+            });
+        })(jQuery); // Asegura que se utilice 'jQuery' en lugar de '$'
     </script>
 
     <!-- Modal de Bootstrap -->
