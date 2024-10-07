@@ -51,12 +51,7 @@ function custom_js_code() {
                 }
             }
 
-            // Asignar la función al botón
-            $('button').on('click', function() {
-                addLista();
-            });
-
-            // Función para manejar el inicio de sesión
+                       // Función para manejar el inicio de sesión
             $('#loginForm').on('submit', function(e) {
                 e.preventDefault(); // Prevenir el envío del formulario
 
