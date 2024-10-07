@@ -6,7 +6,7 @@ function custom_add_scripts() {
     // Pasar el estado de login al script de JavaScript
     wp_localize_script('jquery', 'wp_user_data', array(
         'is_logged_in' => is_user_logged_in() ? 'true' : 'false',
-        'ajax_url' => admin_url('admin-ajax.php'), // URL para las solicitudes Ajax
+        'ajax_url'     => admin_url('admin-ajax.php'), // URL para las peticiones AJAX
     ));
 
     // Agregar el script personalizado en el footer
@@ -28,32 +28,33 @@ function custom_js_code() {
                 }
             }
 
-            // Asignar la función al botón de agregar lista
+            // Asignar la función al botón "Agregar Lista"
             $('button').on('click', function() {
                 addLista();
             });
 
-            // Manejar el login con AJAX
+            // Enviar formulario de login al hacer click en "Iniciar Sesión"
             $('#loginForm').on('submit', function(e) {
-                e.preventDefault();
+                e.preventDefault(); // Evitar que el formulario se envíe de manera normal
                 var username = $('#username').val();
                 var password = $('#password').val();
 
+                // Realizar la petición AJAX para iniciar sesión
                 $.ajax({
                     type: 'POST',
-                    url: wp_user_data.ajax_url,
+                    url: wp_user_data.ajax_url, // URL de admin-ajax.php
                     data: {
-                        action: 'custom_user_login', // Acción para wp_ajax
+                        action: 'custom_user_login', // Acción personalizada en PHP
                         username: username,
                         password: password
                     },
                     success: function(response) {
                         if (response.success) {
-                            alert('Login exitoso');
-                            $('#loginModal').modal('hide');
-                            location.reload(); // Recargar la página para reflejar el login
+                            // Si el login es exitoso, recargar la página o mostrar un mensaje
+                            location.reload(); // O puedes redirigir a otra página si lo deseas
                         } else {
-                            alert('Error de inicio de sesión: ' + response.data.message);
+                            // Mostrar error
+                            alert('Error: ' + response.data.message);
                         }
                     }
                 });
@@ -93,26 +94,30 @@ function custom_js_code() {
     <?php
 }
 
-// Función para manejar la solicitud de login vía Ajax
+// Procesar la solicitud AJAX para el login
 function custom_user_login() {
-    // Recibir datos del formulario
-    $username = isset($_POST['username']) ? sanitize_text_field($_POST['username']) : '';
-    $password = isset($_POST['password']) ? $_POST['password'] : '';
+    // Verificar los parámetros
+    if (isset($_POST['username']) && isset($_POST['password'])) {
+        $username = sanitize_text_field($_POST['username']);
+        $password = sanitize_text_field($_POST['password']);
 
-    // Intentar iniciar sesión con los datos proporcionados
-    $creds = array(
-        'user_login'    => $username,
-        'user_password' => $password,
-        'remember'      => true
-    );
-    $user = wp_signon($creds, false);
+        // Intentar iniciar sesión
+        $user = wp_signon(array(
+            'user_login'    => $username,
+            'user_password' => $password,
+            'remember'      => true,
+        ));
 
-    // Verificar si el login fue exitoso
-    if (is_wp_error($user)) {
-        wp_send_json_error(array('message' => $user->get_error_message()));
+        if (is_wp_error($user)) {
+            // Devolver error si las credenciales son incorrectas
+            wp_send_json_error(array('message' => 'Credenciales incorrectas'));
+        } else {
+            // Devolver éxito si el inicio de sesión fue correcto
+            wp_send_json_success();
+        }
     } else {
-        wp_send_json_success();
+        wp_send_json_error(array('message' => 'Faltan datos'));
     }
 }
 add_action('wp_ajax_custom_user_login', 'custom_user_login');
-add_action('wp_ajax_nopriv_custom_user_login', 'custom_user_login');
+add_action('wp_ajax_nopriv_custom_user_login', 'custom_user_login'); // Permitir que los usuarios no logueados accedan
