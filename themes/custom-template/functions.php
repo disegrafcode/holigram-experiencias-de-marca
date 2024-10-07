@@ -5,6 +5,7 @@ require_once dirname(__FILE__) . '/includes/funciones.php'; /* CUSTOM SEARCH FOR
 require_once dirname(__FILE__) . '/includes/pagina-de-opciones.php'; /* CREAMOS PÁGINA DE OPCIONES PARA AL WEB */
 require_once dirname(__FILE__) . '/includes/shortcodes.php'; /* SHORTCODES DE LA WEB */
 require_once dirname(__FILE__) . '/includes/custom_logging_register.php'; /* LOGIN / REGISTER PERSONALIZADO */
+require_once dirname(__FILE__) . '/includes/usuarios.php'; /* USUARIOS AJUSTES Y CAMPOS EXTRAS */
 
 require_once dirname(__FILE__) . '/includes/custom_post_listas'; /* CUSTOM POST LISTAS */
 
