@@ -7,6 +7,7 @@ function custom_add_scripts() {
     wp_localize_script('jquery', 'wp_user_data', array(
         'is_logged_in' => is_user_logged_in() ? 'true' : 'false',
         'ajax_url'     => admin_url('admin-ajax.php'), // URL para las peticiones AJAX
+        'nonce'        => wp_create_nonce('ajax-login-nonce') // Nonce de seguridad
     ));
 
     // Agregar el script personalizado en el footer
@@ -17,7 +18,6 @@ add_action('wp_enqueue_scripts', 'custom_add_scripts');
 function custom_js_code() {
     ?>
     <script type="text/javascript">
-        // Asegurar que jQuery ($) está disponible y asignar la función 'addLista' al contexto global
         (function($) {
             // Definir la función 'addLista' en el ámbito global
             window.addLista = function() {
@@ -36,6 +36,12 @@ function custom_js_code() {
                 var username = $('#username').val();
                 var password = $('#password').val();
 
+                // Verificar que ambos campos estén llenos
+                if (username === '' || password === '') {
+                    alert('Por favor, complete todos los campos.');
+                    return;
+                }
+
                 // Realizar la petición AJAX para iniciar sesión
                 $.ajax({
                     type: 'POST',
@@ -43,20 +49,24 @@ function custom_js_code() {
                     data: {
                         action: 'custom_user_login', // Acción personalizada en PHP
                         username: username,
-                        password: password
+                        password: password,
+                        security: wp_user_data.nonce // Nonce de seguridad
                     },
                     success: function(response) {
                         if (response.success) {
-                            // Si el login es exitoso, recargar la página o mostrar un mensaje
+                            // Si el login es exitoso, recargar la página
                             location.reload(); // O puedes redirigir a otra página si lo deseas
                         } else {
                             // Mostrar error
                             alert('Error: ' + response.data.message);
                         }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error en el servidor: ' + error);
                     }
                 });
             });
-        })(jQuery); // Pasamos jQuery como alias $ para evitar conflictos
+        })(jQuery);
     </script>
 
     <!-- Modal de Bootstrap -->
@@ -93,27 +103,31 @@ function custom_js_code() {
 
 // Procesar la solicitud AJAX para el login
 function custom_user_login() {
+    // Verificar el nonce de seguridad
+    check_ajax_referer('ajax-login-nonce', 'security');
+
     // Verificar los parámetros
     if (isset($_POST['username']) && isset($_POST['password'])) {
         $username = sanitize_text_field($_POST['username']);
         $password = sanitize_text_field($_POST['password']);
 
         // Intentar iniciar sesión
-        $user = wp_signon(array(
+        $credentials = array(
             'user_login'    => $username,
             'user_password' => $password,
             'remember'      => true,
-        ));
+        );
+        $user = wp_signon($credentials, false);
 
         if (is_wp_error($user)) {
             // Devolver error si las credenciales son incorrectas
-            wp_send_json_error(array('message' => 'Credenciales incorrectas'));
+            wp_send_json_error(array('message' => $user->get_error_message()));
         } else {
             // Devolver éxito si el inicio de sesión fue correcto
             wp_send_json_success();
         }
     } else {
-        wp_send_json_error(array('message' => 'Faltan datos'));
+        wp_send_json_error(array('message' => 'Faltan datos.'));
     }
 }
 add_action('wp_ajax_custom_user_login', 'custom_user_login');
