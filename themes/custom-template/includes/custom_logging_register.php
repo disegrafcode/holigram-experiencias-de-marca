@@ -75,7 +75,7 @@ function custom_js_code() {
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="loginForm">
+                    <form id="loginForm" method="post">
                         <div class="form-group">
                             <label for="username">Usuario</label>
                             <input type="text" class="form-control" id="username" placeholder="Usuario" required>
