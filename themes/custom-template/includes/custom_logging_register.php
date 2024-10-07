@@ -31,6 +31,7 @@ function custom_js_code() {
 
             // Enviar formulario de login al hacer click en "Iniciar Sesión"
             $('#loginForm').on('submit', function(e) {
+                alert();
                 e.preventDefault(); // Evitar que el formulario se envíe de manera normal
                 var username = $('#username').val();
                 var password = $('#password').val();
