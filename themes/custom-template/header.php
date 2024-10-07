@@ -44,8 +44,9 @@
                         if (!$hide_menu_search) {
                             get_search_form();
                         }
-                        /* PERSONALIZADO CON PHP PLUGIN */
+                        /* PERSONALIZADO CON PHP PLUGIN */                     
                         ?>
+                        <button class="btn-primary ms-3" onclick="addLista()">Agregar Lista</button>
                     </div>
                 </div>
             </nav>
