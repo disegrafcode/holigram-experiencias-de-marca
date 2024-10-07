@@ -110,3 +110,94 @@ add_action('pre_get_posts', 'ocultar_tipo_entrada_listas');
 /****** CUSTOM POST LISTAS  *********/
 /************************************/
 
+/***************************************/
+/****** CAMPOS PERSONALIZADOS  *********/
+/***************************************/
+// Añadir metaboxes para "Listas"
+function listas_agregar_metaboxes() {
+    add_meta_box(
+        'listas_detalles',       // ID único de la metabox
+        'Detalles de la Lista',  // Título de la metabox
+        'listas_mostrar_metabox',// Función callback para mostrar el contenido
+        'listas',                // El tipo de entrada donde aparece (Listas)
+        'normal',                // Ubicación de la metabox
+        'high'                   // Prioridad de la metabox
+    );
+}
+add_action('add_meta_boxes', 'listas_agregar_metaboxes');
+
+// Función para mostrar la metabox y sus campos personalizados
+function listas_mostrar_metabox($post) {
+    // Recuperar valores guardados (si existen)
+    $usuario_id = get_post_meta($post->ID, '_listas_usuario_id', true);
+    $fecha_instalacion = get_post_meta($post->ID, '_listas_fecha_instalacion', true);
+    $duracion = get_post_meta($post->ID, '_listas_duracion', true);
+    $fecha_desinstalacion = get_post_meta($post->ID, '_listas_fecha_desinstalacion', true);
+    $provincia = get_post_meta($post->ID, '_listas_provincia', true);
+    $distrito = get_post_meta($post->ID, '_listas_distrito', true);
+    $tipo_local = get_post_meta($post->ID, '_listas_tipo_local', true);
+
+    // Crear campos personalizados dentro de la metabox
+    ?>
+    <label for="listas_usuario_id">Id Usuario:</label>
+    <input type="text" name="listas_usuario_id" id="listas_usuario_id" value="<?php echo esc_attr($usuario_id); ?>" class="widefat"><br><br>
+
+    <label for="listas_fecha_instalacion">Fecha de Instalación:</label>
+    <input type="date" name="listas_fecha_instalacion" id="listas_fecha_instalacion" value="<?php echo esc_attr($fecha_instalacion); ?>" class="widefat"><br><br>
+
+    <label for="listas_duracion">Duración (horas / días):</label>
+    <input type="text" name="listas_duracion" id="listas_duracion" value="<?php echo esc_attr($duracion); ?>" class="widefat"><br><br>
+
+    <label for="listas_fecha_desinstalacion">Fecha de Desinstalación:</label>
+    <input type="date" name="listas_fecha_desinstalacion" id="listas_fecha_desinstalacion" value="<?php echo esc_attr($fecha_desinstalacion); ?>" class="widefat"><br><br>
+
+    <label for="listas_provincia">Provincia:</label>
+    <input type="text" name="listas_provincia" id="listas_provincia" value="<?php echo esc_attr($provincia); ?>" class="widefat"><br><br>
+
+    <label for="listas_distrito">Distrito:</label>
+    <input type="text" name="listas_distrito" id="listas_distrito" value="<?php echo esc_attr($distrito); ?>" class="widefat"><br><br>
+
+    <label for="listas_tipo_local">Tipo de Local:</label>
+    <select name="listas_tipo_local" id="listas_tipo_local" class="widefat">
+        <option value="Aire libre con sol directo" <?php selected($tipo_local, 'Aire libre con sol directo'); ?>>Aire libre con sol directo</option>
+        <option value="Lugar abierto pero techado" <?php selected($tipo_local, 'Lugar abierto pero techado'); ?>>Lugar abierto pero techado</option>
+        <option value="Ambiente totalmente cerrado" <?php selected($tipo_local, 'Ambiente totalmente cerrado'); ?>>Ambiente totalmente cerrado</option>
+    </select>
+    <?php
+}
+
+// Guardar los valores de los campos personalizados
+function listas_guardar_campos_personalizados($post_id) {
+    // Verificar si se trata de una autoguardado y si el tipo de entrada es "listas"
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if (isset($_POST['post_type']) && $_POST['post_type'] === 'listas') {
+
+        // Guardar los campos personalizados
+        if (isset($_POST['listas_usuario_id'])) {
+            update_post_meta($post_id, '_listas_usuario_id', sanitize_text_field($_POST['listas_usuario_id']));
+        }
+        if (isset($_POST['listas_fecha_instalacion'])) {
+            update_post_meta($post_id, '_listas_fecha_instalacion', sanitize_text_field($_POST['listas_fecha_instalacion']));
+        }
+        if (isset($_POST['listas_duracion'])) {
+            update_post_meta($post_id, '_listas_duracion', sanitize_text_field($_POST['listas_duracion']));
+        }
+        if (isset($_POST['listas_fecha_desinstalacion'])) {
+            update_post_meta($post_id, '_listas_fecha_desinstalacion', sanitize_text_field($_POST['listas_fecha_desinstalacion']));
+        }
+        if (isset($_POST['listas_provincia'])) {
+            update_post_meta($post_id, '_listas_provincia', sanitize_text_field($_POST['listas_provincia']));
+        }
+        if (isset($_POST['listas_distrito'])) {
+            update_post_meta($post_id, '_listas_distrito', sanitize_text_field($_POST['listas_distrito']));
+        }
+        if (isset($_POST['listas_tipo_local'])) {
+            update_post_meta($post_id, '_listas_tipo_local', sanitize_text_field($_POST['listas_tipo_local']));
+        }
+    }
+}
+add_action('save_post', 'listas_guardar_campos_personalizados');
+
+/***************************************/
+/****** CAMPOS PERSONALIZADOS  *********/
+/***************************************/
