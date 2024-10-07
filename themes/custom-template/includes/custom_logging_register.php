@@ -127,7 +127,7 @@ add_action('wp_ajax_nopriv_custom_user_login', 'custom_user_login'); // Permitir
 add_action('template_redirect', 'require_login_before_checkout');
 function require_login_before_checkout() {
     if (!is_user_logged_in() && (is_checkout() || is_cart())) {
-        wp_redirect(wp_login_url());
+        wp_redirect('my-account');
         exit;
     }
 }
