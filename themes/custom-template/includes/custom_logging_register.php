@@ -17,8 +17,10 @@ add_action('wp_enqueue_scripts', 'custom_add_scripts');
 function custom_js_code() {
     ?>
     <script type="text/javascript">
+        // Asegurar que jQuery ($) está disponible y asignar la función 'addLista' al contexto global
         (function($) {
-            function addLista() {
+            // Definir la función 'addLista' en el ámbito global
+            window.addLista = function() {
                 // Verificar si el usuario está logueado
                 if (wp_user_data.is_logged_in === 'true') {
                     console.log('Usuario logueado');
@@ -26,12 +28,7 @@ function custom_js_code() {
                     // Mostrar modal de login
                     $('#loginModal').modal('show');
                 }
-            }
-
-            // Asignar la función al botón "Agregar Lista"
-            $('button').on('click', function() {
-                addLista();
-            });
+            };
 
             // Enviar formulario de login al hacer click en "Iniciar Sesión"
             $('#loginForm').on('submit', function(e) {
@@ -59,7 +56,7 @@ function custom_js_code() {
                     }
                 });
             });
-        })(jQuery);
+        })(jQuery); // Pasamos jQuery como alias $ para evitar conflictos
     </script>
 
     <!-- Modal de Bootstrap -->
