@@ -19,17 +19,6 @@ function custom_js_code() {
     ?>
     <script type="text/javascript">
         (function($) {
-            // Función para agregar lista
-            window.addLista = function() {
-                // Verificar si el usuario está logueado
-                if (wp_user_data.is_logged_in === 'true') {
-                    console.log('Usuario logueado');
-                } else {
-                    // Mostrar modal de login
-                    $('#loginModal').modal('show');
-                }
-            };
-
             // Función para abrir modal de registro y cerrar el de login
             window.registrarme = function() {
                 // Cerrar el modal de login si está abierto
@@ -39,22 +28,92 @@ function custom_js_code() {
                 $('#registerModal').modal('show');
             };
 
-            // Delegar el submit del formulario de registro (puedes añadir aquí la lógica AJAX para registrar)
+            // Función de validación del formulario de registro
+            function validateRegisterForm() {
+                var nombres = $('#nombres').val().trim();
+                var apellidos = $('#apellidos').val().trim();
+                var correo = $('#correo').val().trim();
+                var contrasena = $('#password').val().trim();
+                var repite_contrasena = $('#password_confirm').val().trim();
+                var tipo_usuario = $('input[name="tipo_usuario"]:checked').val();
+                var razon_social = $('#razon_social').val().trim();
+                var ruc = $('#ruc').val().trim();
+
+                // Validaciones
+                if (nombres === '' || apellidos === '' || correo === '' || contrasena === '' || repite_contrasena === '') {
+                    alert('Todos los campos son obligatorios.');
+                    return false;
+                }
+
+                // Validar que las contraseñas coincidan
+                if (contrasena !== repite_contrasena) {
+                    alert('Las contraseñas no coinciden.');
+                    return false;
+                }
+
+                // Validar el tipo de usuario
+                if (tipo_usuario === 'Agencia tercerizadora de servicios') {
+                    if (razon_social === '' || ruc === '') {
+                        alert('Razón social y RUC son obligatorios para Agencias tercerizadoras.');
+                        return false;
+                    }
+                }
+
+                // Validar el formato de correo
+                var emailPattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+                if (!emailPattern.test(correo)) {
+                    alert('Formato de correo inválido.');
+                    return false;
+                }
+
+                return true;
+            }
+
+            // Manejar el envío del formulario de registro
             $(document).on('submit', '#registerForm', function(e) {
                 e.preventDefault();
-                // Aquí puedes manejar el registro con AJAX si lo deseas
-                // Recoger los datos del formulario
-                var nombres = $('#nombres').val();
-                var apellidos = $('#apellidos').val();
-                var correo = $('#correo').val();
-                var contrasena = $('#password').val();
-                var repite_contrasena = $('#password_confirm').val();
-                var tipo_usuario = $('input[name="tipo_usuario"]:checked').val();
-                var razon_social = $('#razon_social').val();
-                var ruc = $('#ruc').val();
 
-                // Lógica para el envío de la información de registro mediante AJAX
-                // Puedes implementar wp_ajax para manejar el registro en el servidor
+                // Validar el formulario antes de enviarlo
+                if (!validateRegisterForm()) {
+                    return;
+                }
+
+                // Recoger los datos del formulario
+                var formData = {
+                    action: 'custom_user_register', // Acción personalizada en PHP
+                    nombres: $('#nombres').val(),
+                    apellidos: $('#apellidos').val(),
+                    correo: $('#correo').val(),
+                    password: $('#password').val(),
+                    tipo_usuario: $('input[name="tipo_usuario"]:checked').val(),
+                    razon_social: $('#razon_social').val(),
+                    ruc: $('#ruc').val(),
+                };
+
+                // Realizar la solicitud AJAX
+                $.ajax({
+                    type: 'POST',
+                    url: wp_user_data.ajax_url, // URL de admin-ajax.php
+                    data: formData,
+                    success: function(response) {
+                        if (response.success) {
+                            // Registro exitoso
+                            alert('Registrado correctamente');
+                            location.reload(); // Recargar la página
+                        } else {
+                            // Mostrar mensaje de error si el correo ya está registrado
+                            if (response.data.message === 'email_exists') {
+                                alert('El correo ya está registrado.');
+                            } else {
+                                alert('Error: ' + response.data.message);
+                            }
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // Mostrar error en caso de que la petición AJAX falle
+                        alert('Error en la solicitud: ' + error);
+                    }
+                });
             });
 
             // Mostrar/ocultar campos "Razón Social" y "RUC" en función del tipo de usuario
@@ -67,37 +126,6 @@ function custom_js_code() {
             });
         })(jQuery); // Pasamos jQuery como alias $ para evitar conflictos
     </script>
-
-    <!-- Modal de Iniciar Sesión -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="loginForm">
-                        <div class="form-group">
-                            <label for="username">Usuario</label>
-                            <input type="text" class="form-control" id="username" placeholder="Usuario" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Contraseña</label>
-                            <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
-                        </div>
-                        <div class="form-group">
-                            <a href="<?php echo wp_lostpassword_url(); ?>">Olvidé mi contraseña</a>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-                        <button class="btnbtn-secondary ms-3" onclick="registrarme()">Registrame</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Modal de Registro -->
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
@@ -152,6 +180,46 @@ function custom_js_code() {
     </div>
     <?php
 }
+
+// Función para procesar el registro vía AJAX
+function custom_user_register() {
+    if (isset($_POST['correo'])) {
+        $email = sanitize_email($_POST['correo']);
+
+        // Verificar si el correo ya está registrado
+        if (email_exists($email)) {
+            wp_send_json_error(array('message' => 'email_exists'));
+        }
+
+        // Crear el nuevo usuario
+        $userdata = array(
+            'user_login'    => $email,
+            'user_email'    => $email,
+            'first_name'    => sanitize_text_field($_POST['nombres']),
+            'last_name'     => sanitize_text_field($_POST['apellidos']),
+            'user_pass'     => sanitize_text_field($_POST['password']),
+        );
+
+        $user_id = wp_insert_user($userdata);
+
+        if (!is_wp_error($user_id)) {
+            // Guardar los campos personalizados
+            update_user_meta($user_id, 'tipo_usuario', sanitize_text_field($_POST['tipo_usuario']));
+            update_user_meta($user_id, 'razon_social', sanitize_text_field($_POST['razon_social']));
+            update_user_meta($user_id, 'ruc', sanitize_text_field($_POST['ruc']));
+
+            // Respuesta exitosa
+            wp_send_json_success();
+        } else {
+            wp_send_json_error(array('message' => $user_id->get_error_message()));
+        }
+    }
+
+    wp_die();
+}
+add_action('wp_ajax_custom_user_register', 'custom_user_register');
+add_action('wp_ajax_nopriv_custom_user_register', 'custom_user_register');
+
 
 
 
