@@ -114,16 +114,13 @@ function custom_js_code() {
 /**********************/
 
 function register_add_scripts() {
-    // Encolar jQuery si no está ya encolado
     wp_enqueue_script('jquery');
 
-    // Pasar el estado de login al script de JavaScript
     wp_localize_script('jquery', 'wp_user_data', array(
         'is_logged_in' => is_user_logged_in() ? 'true' : 'false',
-        'ajax_url'     => admin_url('admin-ajax.php'), // URL para las peticiones AJAX
+        'ajax_url'     => admin_url('admin-ajax.php'),
     ));
 
-    // Agregar el script personalizado en el footer
     add_action('wp_footer', 'custom_register_js_code');
 }
 add_action('wp_enqueue_scripts', 'register_add_scripts');
@@ -132,58 +129,46 @@ function custom_register_js_code() {
     ?>
     <script type="text/javascript">
         (function($) {
-            // Función para abrir modal de registro y cerrar el de login
             window.registrarme = function() {
-                $('#loginModal').modal('hide');  // Cerrar el modal de login si está abierto
-                $('#registerModal').modal('show'); // Mostrar el modal de registro
+                $('#loginModal').modal('hide');
+                $('#registerModal').modal('show');
             };
 
-            // Validar el formulario de registro antes de enviarlo por AJAX
             $(document).on('submit', '#registerForm', function(e) {
                 e.preventDefault();
 
-                // Recoger los datos del formulario
-                var nombres = $('#nombres').val().trim();
-                var apellidos = $('#apellidos').val().trim();
-                var correo = $('#correo').val().trim();
-                var contrasena = $('#password').val().trim();
-                var repite_contrasena = $('#password_confirm').val().trim();
-                var razon_social = $('#razon_social').val().trim();
-                var ruc = $('#ruc').val().trim();
+                // Recoger los datos del formulario correctamente
+                var nombres = $.trim($('#nombres').val());
+                var apellidos = $.trim($('#apellidos').val());
+                var correo = $.trim($('#correo').val());
+                var contrasena = $.trim($('#password').val());
+                var repite_contrasena = $.trim($('#password_confirm').val());
+                var razon_social = $.trim($('#razon_social').val());
+                var ruc = $.trim($('#ruc').val());
 
-                console.log(nombres);
-                console.log(apellidos);
-                console.log(correo);
-                console.log(contrasena);
-                console.log(repite_contrasena);
-                console.log(razon_social);
-                console.log(ruc);
-
-                // Validaciones: Asegúrate de que todos los campos estén completos
-                if (!nombres || !apellidos || !correo || !contrasena || !repite_contrasena || !razon_social || !ruc) {
+                // Validaciones básicas
+                if (nombres === '' || apellidos === '' || correo === '' || contrasena === '' || repite_contrasena === '' || razon_social === '' || ruc === '') {
                     alert('Todos los campos son obligatorios.');
                     return;
                 }
 
-                // Verificar que las contraseñas coincidan
                 if (contrasena !== repite_contrasena) {
                     alert('Las contraseñas no coinciden.');
                     return;
                 }
 
-                // Verificar formato de correo
                 var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
                 if (!emailPattern.test(correo)) {
                     alert('Por favor, introduce un correo válido.');
                     return;
                 }
 
-                // Realizar la petición AJAX para registrar al usuario
+                // Realizar la petición AJAX para el registro
                 $.ajax({
                     type: 'POST',
-                    url: wp_user_data.ajax_url, // URL de admin-ajax.php
+                    url: wp_user_data.ajax_url,
                     data: {
-                        action: 'custom_user_register', // Acción personalizada en PHP
+                        action: 'custom_user_register',
                         nombres: nombres,
                         apellidos: apellidos,
                         correo: correo,
@@ -194,7 +179,7 @@ function custom_register_js_code() {
                     success: function(response) {
                         if (response.success) {
                             alert('Registrado correctamente');
-                            location.reload(); // Recargar la página o redirigir
+                            location.reload();
                         } else {
                             if (response.data && response.data.email_exists) {
                                 alert('El correo ya está registrado');
@@ -208,7 +193,7 @@ function custom_register_js_code() {
                     }
                 });
             });
-        })(jQuery); // Pasamos jQuery como alias $ para evitar conflictos
+        })(jQuery);
     </script>
 
     <!-- Modal de Registro -->
@@ -260,13 +245,10 @@ function custom_register_js_code() {
     <?php
 }
 
-// Procesar la solicitud AJAX para registrar un usuario
 function custom_user_register() {
-    // Verificar los parámetros
     if (isset($_POST['correo'])) {
         $correo = sanitize_email($_POST['correo']);
-        
-        // Verificar si el correo ya está registrado
+
         if (email_exists($correo)) {
             wp_send_json_error(array('email_exists' => true));
             return;
@@ -278,28 +260,25 @@ function custom_user_register() {
         $razon_social = sanitize_text_field($_POST['razon_social']);
         $ruc = sanitize_text_field($_POST['ruc']);
 
-        // Crear el nuevo usuario
         $user_id = wp_create_user($correo, $contrasena, $correo);
-        
+
         if (is_wp_error($user_id)) {
             wp_send_json_error(array('message' => 'Error al crear el usuario.'));
             return;
         }
 
-        // Añadir los metas de usuario
         update_user_meta($user_id, 'first_name', $nombres);
         update_user_meta($user_id, 'last_name', $apellidos);
         update_user_meta($user_id, 'razon_social', $razon_social);
         update_user_meta($user_id, 'ruc', $ruc);
 
-        // Devolver éxito
         wp_send_json_success();
     } else {
         wp_send_json_error(array('message' => 'Faltan datos.'));
     }
 }
 add_action('wp_ajax_custom_user_register', 'custom_user_register');
-add_action('wp_ajax_nopriv_custom_user_register', 'custom_user_register'); // Permitir acceso para no logueados
+add_action('wp_ajax_nopriv_custom_user_register', 'custom_user_register');
 
 
 /***********************/
