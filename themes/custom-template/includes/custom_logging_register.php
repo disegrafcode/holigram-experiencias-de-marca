@@ -11,11 +11,11 @@ function login_add_scripts() {
     ));
 
     // Agregar el script personalizado en el footer
-    add_action('wp_footer', 'custom_js_code');
+    add_action('wp_footer', 'login_js_code');
 }
 add_action('wp_enqueue_scripts', 'login_add_scripts');
 
-function custom_js_code() {
+function login_js_code() {
     ?>
     <script type="text/javascript">
         (function($) {
@@ -168,11 +168,11 @@ function register_add_scripts() {
     ));
 
     // Agregar el script personalizado en el footer
-    add_action('wp_footer', 'custom_js_code');
+    add_action('wp_footer', 'register_js_code');
 }
 add_action('wp_enqueue_scripts', 'register_add_scripts');
 
-function custom_js_code() {
+function register_js_code() {
     ?>
     <script type="text/javascript">
         (function($) {
