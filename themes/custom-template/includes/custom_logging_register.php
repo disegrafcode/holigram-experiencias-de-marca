@@ -19,31 +19,14 @@ function custom_js_code() {
     ?>
     <script type="text/javascript">
         (function($) {
-            // Función para agregar lista
-            window.addLista = function() {
-                // Verificar si el usuario está logueado
-                if (wp_user_data.is_logged_in === 'true') {
-                    console.log('Usuario logueado');
-                } else {
-                    // Mostrar modal de login
-                    $('#loginModal').modal('show');
-                }
-            };
-
             // Función para abrir modal de registro y cerrar el de login
             window.registrarme = function() {
-                // Cerrar el modal de login si está abierto
                 $('#loginModal').modal('hide');
-                
-                // Mostrar el modal de registro
                 $('#registerModal').modal('show');
             };
 
-            // Delegar el submit del formulario de registro (puedes añadir aquí la lógica AJAX para registrar)
-            $(document).on('submit', '#registerForm', function(e) {
-                e.preventDefault();
-                // Aquí puedes manejar el registro con AJAX si lo deseas
-                // Recoger los datos del formulario
+            // Validar el formulario antes de enviarlo
+            function validarFormulario() {
                 var nombres = $('#nombres').val();
                 var apellidos = $('#apellidos').val();
                 var correo = $('#correo').val();
@@ -52,17 +35,83 @@ function custom_js_code() {
                 var tipo_usuario = $('input[name="tipo_usuario"]:checked').val();
                 var razon_social = $('#razon_social').val();
                 var ruc = $('#ruc').val();
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-                // Lógica para el envío de la información de registro mediante AJAX
-                // Puedes implementar wp_ajax para manejar el registro en el servidor
+                // Validar que los campos obligatorios no estén vacíos
+                if (!nombres || !apellidos || !correo || !contrasena || !repite_contrasena) {
+                    alert('Todos los campos son obligatorios.');
+                    return false;
+                }
+
+                // Validar que el correo tenga un formato válido
+                if (!emailRegex.test(correo)) {
+                    alert('Por favor ingresa un correo válido.');
+                    return false;
+                }
+
+                // Validar que las contraseñas coincidan
+                if (contrasena !== repite_contrasena) {
+                    alert('Las contraseñas no coinciden.');
+                    return false;
+                }
+
+                // Validar que si es "Agencia tercerizadora de servicios", los campos "Razón Social" y "RUC" no estén vacíos
+                if (tipo_usuario === 'Agencia tercerizadora de servicios') {
+                    if (!razon_social || !ruc) {
+                        alert('Por favor completa los campos Razón Social y RUC.');
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            // Manejar el submit del formulario de registro con AJAX
+            $(document).on('submit', '#registerForm', function(e) {
+                e.preventDefault();
+                
+                // Validar antes de enviar
+                if (!validarFormulario()) {
+                    return;
+                }
+
+                // Recoger los datos del formulario
+                var formData = {
+                    action: 'custom_user_registration',
+                    nombres: $('#nombres').val(),
+                    apellidos: $('#apellidos').val(),
+                    correo: $('#correo').val(),
+                    password: $('#password').val(),
+                    tipo_usuario: $('input[name="tipo_usuario"]:checked').val(),
+                    razon_social: $('#razon_social').val(),
+                    ruc: $('#ruc').val(),
+                };
+
+                // Enviar el registro mediante AJAX
+                $.ajax({
+                    type: 'POST',
+                    url: wp_user_data.ajax_url,
+                    data: formData,
+                    success: function(response) {
+                        if (response.success) {
+                            alert('Registrado correctamente');
+                            $('#registerModal').modal('hide'); // Cerrar modal
+                        } else {
+                            alert('Error: ' + response.data.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error en la solicitud: ' + error);
+                    }
+                });
             });
 
-            // Mostrar/ocultar campos "Razón Social" y "RUC" en función del tipo de usuario
+            // Mostrar/ocultar campos "Razón Social" y "RUC" según el tipo de usuario
             $('input[name="tipo_usuario"]').on('change', function() {
                 if ($(this).val() === 'Agencia tercerizadora de servicios') {
-                    $('#razon_social_group, #ruc_group').show();  // Mostrar
+                    $('#razon_social_group, #ruc_group').show();
                 } else {
-                    $('#razon_social_group, #ruc_group').hide();  // Ocultar
+                    $('#razon_social_group, #ruc_group').hide();
                 }
             });
         })(jQuery); // Pasamos jQuery como alias $ para evitar conflictos
@@ -92,7 +141,6 @@ function custom_js_code() {
                             <a href="<?php echo wp_lostpassword_url(); ?>">Olvidé mi contraseña</a>
                         </div>
                         <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-                        <button class="btn btn-secondary ms-3" onclick="registrarme()">Registrame</button>
                     </form>
                 </div>
             </div>
@@ -152,6 +200,7 @@ function custom_js_code() {
     </div>
     <?php
 }
+
 
 
 
