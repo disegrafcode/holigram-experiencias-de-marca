@@ -151,7 +151,7 @@ function custom_register_js_code() {
                 var razon_social = $('#razon_social').val().trim();
                 var ruc = $('#ruc').val().trim();
 
-                // Validaciones
+                // Validaciones: Asegúrate de que todos los campos estén completos
                 if (!nombres || !apellidos || !correo || !contrasena || !repite_contrasena || !razon_social || !ruc) {
                     alert('Todos los campos son obligatorios.');
                     return;
