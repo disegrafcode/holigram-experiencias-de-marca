@@ -152,10 +152,10 @@ function custom_register_js_code() {
                 var ruc = $('#ruc').val().trim();
 
                 // Validaciones: Asegúrate de que todos los campos estén completos
-                if (!nombres || !apellidos || !correo || !contrasena || !repite_contrasena || !razon_social || !ruc) {
+                /*if (!nombres || !apellidos || !correo || !contrasena || !repite_contrasena || !razon_social || !ruc) {
                     alert('Todos los campos son obligatorios.');
                     return;
-                }
+                }*/
 
                 // Verificar que las contraseñas coincidan
                 if (contrasena !== repite_contrasena) {
