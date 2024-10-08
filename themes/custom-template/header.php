@@ -47,6 +47,7 @@
                         /* PERSONALIZADO CON PHP PLUGIN */                     
                         ?>
                         <button class="btn-primary ms-3" onclick="addLista()">Agregar Lista</button>
+                        <button class="btn-secondary ms-3" onclick="registrarme()">Registrame</button>
                     </div>
                 </div>
             </nav>
