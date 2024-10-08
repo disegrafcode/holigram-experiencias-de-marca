@@ -151,11 +151,19 @@ function custom_register_js_code() {
                 var razon_social = $('#razon_social').val().trim();
                 var ruc = $('#ruc').val().trim();
 
+                console.log(nombres);
+                console.log(apellidos);
+                console.log(correo);
+                console.log(contrasena);
+                console.log(repite_contrasena);
+                console.log(razon_social);
+                console.log(ruc);
+
                 // Validaciones: Asegúrate de que todos los campos estén completos
-                /*if (!nombres || !apellidos || !correo || !contrasena || !repite_contrasena || !razon_social || !ruc) {
+                if (!nombres || !apellidos || !correo || !contrasena || !repite_contrasena || !razon_social || !ruc) {
                     alert('Todos los campos son obligatorios.');
                     return;
-                }*/
+                }
 
                 // Verificar que las contraseñas coincidan
                 if (contrasena !== repite_contrasena) {
