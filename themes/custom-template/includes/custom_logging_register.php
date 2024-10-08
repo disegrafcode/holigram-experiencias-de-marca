@@ -112,6 +112,7 @@ function custom_js_code() {
 /***********************/
 /*** REGISTER MODAL ***/
 /**********************/
+
 function register_add_scripts() {
     // Encolar jQuery si no está ya encolado
     wp_enqueue_script('jquery');
@@ -151,7 +152,7 @@ function custom_register_js_code() {
                 var ruc = $('#ruc').val().trim();
 
                 // Validaciones
-                if (nombres === '' || apellidos === '' || correo === '' || contrasena === '' || repite_contrasena === '' || razon_social === '' || ruc === '') {
+                if (!nombres || !apellidos || !correo || !contrasena || !repite_contrasena || !razon_social || !ruc) {
                     alert('Todos los campos son obligatorios.');
                     return;
                 }
@@ -291,6 +292,7 @@ function custom_user_register() {
 }
 add_action('wp_ajax_custom_user_register', 'custom_user_register');
 add_action('wp_ajax_nopriv_custom_user_register', 'custom_user_register'); // Permitir acceso para no logueados
+
 
 /***********************/
 /*** REGISTER MODAL ***/
