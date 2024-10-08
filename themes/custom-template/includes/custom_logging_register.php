@@ -141,7 +141,7 @@ function custom_register_js_code() {
                 var nombres = $.trim($('#nombres').val());
                 var apellidos = $.trim($('#apellidos').val());
                 var correo = $.trim($('#correo').val());
-                var contrasena = $.trim($('#password').val());
+                var contrasena = $.trim($('#password_reg').val());
                 var repite_contrasena = $.trim($('#password_confirm').val());
                 var razon_social = $.trim($('#razon_social').val());
                 var ruc = $.trim($('#ruc').val());
@@ -222,7 +222,7 @@ function custom_register_js_code() {
                         </div>
                         <div class="form-group">
                             <label for="password">Contraseña</label>
-                            <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+                            <input type="password" class="form-control" id="password_reg" placeholder="Contraseña" required>
                         </div>
                         <div class="form-group">
                             <label for="password_confirm">Repite Contraseña</label>
