@@ -92,7 +92,7 @@ function custom_js_code() {
                             <a href="<?php echo wp_lostpassword_url(); ?>">Olvidé mi contraseña</a>
                         </div>
                         <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-                        <button class="btn-secondary ms-3" onclick="registrarme()">Registrame</button>
+                        <button class="btn btn-secondary ms-3" onclick="registrarme()">Registrame</button>
                     </form>
                 </div>
             </div>
